@@ -18,6 +18,7 @@ import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { showSuccess } from "@/utils/toast";
 import logoHorus from "@/assets/logo_transparente.png";
+import AntiCheatRadar from "@/components/anticheat-radar";
 
 type Tone = "pink" | "blue" | "green";
 
@@ -570,7 +571,11 @@ const Index = () => {
             subtitle="El objetivo es que juegues sin preocuparte: menos exposición de red, más control del entorno y comunidad más limpia."
           />
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-3 lg:items-stretch">
+          <div className="mt-10">
+            <AntiCheatRadar />
+          </div>
+
+          <div className="mt-4 grid gap-4 lg:grid-cols-3 lg:items-stretch">
             <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/55 p-6 backdrop-blur lg:col-span-2">
               <div className="flex flex-wrap gap-2">
                 <Badge className="rounded-full border-0 bg-fuchsia-500/15 px-2 py-1 text-[11px] text-fuchsia-200">
