@@ -18,7 +18,7 @@ import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { showSuccess } from "@/utils/toast";
 import logoHorus from "@/assets/logo_transparente.png";
-import AntiCheatHexRadar from "@/components/anticheat-hexradar";
+import AntiCheatWaveform from "@/components/anticheat-waveform";
 
 type Tone = "pink" | "blue" | "green";
 
@@ -572,7 +572,7 @@ const Index = () => {
           />
 
           <div className="mt-10">
-            <AntiCheatHexRadar />
+            <AntiCheatWaveform />
           </div>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-3 lg:items-stretch">
