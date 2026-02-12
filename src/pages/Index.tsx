@@ -9,6 +9,7 @@ import {
   GlobeLock,
   Check,
   ArrowRight,
+  KeyRound,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -364,6 +365,9 @@ const Index = () => {
                 <Pill t="green" icon={<BrainCircuit className="h-3.5 w-3.5" />}>
                   Anti‑cheat + IA 24/7
                 </Pill>
+                <Pill t="blue" icon={<KeyRound className="h-3.5 w-3.5" />}>
+                  HorusPass gratis (password vault)
+                </Pill>
               </div>
 
               <h1 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
@@ -374,6 +378,9 @@ const Index = () => {
               <p className="mt-4 max-w-xl text-pretty text-sm leading-relaxed text-zinc-300/90 sm:text-base">
                 HorusVPN es un ecosistema único: te conectas con nuestra app VPN directamente a nuestros servidores de juegos por una
                 suscripción mensual. Además, ofrecemos alquiler de servidores privados gaming con la misma protección.
+                <span className="block mt-2 text-zinc-200/90">
+                  Incluye gratis <span className="font-semibold text-cyan-200">HorusPass</span>: app para guardar tus contraseñas.
+                </span>
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -472,6 +479,24 @@ const Index = () => {
                     Entrar a la biblioteca
                     <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
+
+                  <div className="mt-3 flex items-center justify-between rounded-2xl border border-cyan-400/15 bg-cyan-500/10 px-4 py-3">
+                    <div className="flex items-center gap-2 text-xs text-zinc-200">
+                      <KeyRound className="h-4 w-4 text-cyan-300" />
+                      <span>
+                        Addon gratis: <span className="font-semibold text-cyan-200">HorusPass</span>
+                      </span>
+                    </div>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="rounded-xl text-zinc-200 hover:bg-zinc-50/5 hover:text-zinc-50"
+                      onClick={() => showSuccess("HorusPass: acceso incluido gratis con tu suscripción.")}
+                    >
+                      Ver más
+                      <ChevronRight className="ml-1 h-4 w-4" />
+                    </Button>
+                  </div>
                 </div>
               </Card>
 
@@ -510,7 +535,7 @@ const Index = () => {
             />
           </div>
 
-          <div className="mt-8 grid gap-4 lg:grid-cols-2">
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
             <ImageCard
               t="blue"
               src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1600&q=80"
@@ -523,6 +548,12 @@ const Index = () => {
               alt="Gaming competitivo"
               caption="Optimizado para sesiones competitivas"
             />
+            <ImageCard
+              t="pink"
+              src="https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=1600&q=80"
+              alt="Password manager / seguridad"
+              caption="HorusPass (addon gratis)"
+            />
           </div>
         </section>
 
@@ -534,8 +565,8 @@ const Index = () => {
             subtitle="El objetivo es que juegues sin preocuparte: menos exposición de red, más control del entorno y comunidad más limpia."
           />
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-2 lg:items-stretch">
-            <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/55 p-6 backdrop-blur">
+          <div className="mt-10 grid gap-4 lg:grid-cols-3 lg:items-stretch">
+            <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/55 p-6 backdrop-blur lg:col-span-2">
               <div className="flex flex-wrap gap-2">
                 <Badge className="rounded-full border-0 bg-fuchsia-500/15 px-2 py-1 text-[11px] text-fuchsia-200">
                   Sin espías en tu PC mientras juegas
@@ -546,13 +577,17 @@ const Index = () => {
                 <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
                   Vigilancia IA 24/7
                 </Badge>
+                <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
+                  HorusPass gratis
+                </Badge>
               </div>
 
-              <div className="mt-5 space-y-3">
+              <div className="mt-5 grid gap-3 lg:grid-cols-2">
                 {[
                   { t: "pink" as const, icon: <ShieldCheck className="h-5 w-5" />, title: "Privacidad real", desc: "Tu sesión viaja por un túnel hacia infraestructura Horus: reduces exposición mientras juegas." },
                   { t: "green" as const, icon: <Swords className="h-5 w-5" />, title: "Anti‑cheat instalado", desc: "Defensa activa para mantener integridad en partidas, servidores y comunidades." },
                   { t: "blue" as const, icon: <BrainCircuit className="h-5 w-5" />, title: "IA vigilando continuamente", desc: "Señales de anomalías y patrones sospechosos: respuesta más rápida, menos abuso." },
+                  { t: "blue" as const, icon: <KeyRound className="h-5 w-5" />, title: "HorusPass (gratis)", desc: "Addon incluido para guardar contraseñas: menos fricción y más seguridad en tus cuentas." },
                 ].map((r) => (
                   <div
                     key={r.title}
@@ -574,13 +609,22 @@ const Index = () => {
                 ))}
               </div>
 
-              <Button
-                className="mt-5 w-full rounded-2xl border border-emerald-400/25 bg-emerald-500/15 text-emerald-100 hover:bg-emerald-500/22"
-                onClick={() => showSuccess("Perfecto — te enviamos detalles técnicos y disponibilidad.")}
-              >
-                Quiero detalles técnicos
-                <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
+              <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                <Button
+                  className="w-full rounded-2xl border border-emerald-400/25 bg-emerald-500/15 text-emerald-100 hover:bg-emerald-500/22"
+                  onClick={() => showSuccess("Perfecto — te enviamos detalles técnicos y disponibilidad.")}
+                >
+                  Quiero detalles técnicos
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button
+                  className="w-full rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
+                  onClick={() => showSuccess("HorusPass: acceso incluido gratis con tu suscripción.")}
+                >
+                  Ver HorusPass
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </Card>
 
             <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50 backdrop-blur">
@@ -622,6 +666,7 @@ const Index = () => {
                 "Acceso a biblioteca de servidores",
                 "VPN directa a infraestructura Horus",
                 "Rutas optimizadas por región",
+                "HorusPass gratis (guardar contraseñas)",
                 "Soporte estándar",
               ]}
             />
@@ -635,6 +680,7 @@ const Index = () => {
                 "Todo en Starter",
                 "Prioridad de rutas y disponibilidad",
                 "Perfiles por juego y región",
+                "HorusPass gratis (guardar contraseñas)",
                 "Soporte prioritario",
               ]}
             />
@@ -647,6 +693,7 @@ const Index = () => {
                 "Todo en Pro",
                 "Gestión multi‑usuario",
                 "Accesos compartidos y favoritos",
+                "HorusPass gratis (guardar contraseñas)",
                 "Soporte avanzado",
               ]}
             />
@@ -758,6 +805,16 @@ const Index = () => {
 
               <AccordionItem value="i3" className="rounded-3xl border border-zinc-800 bg-zinc-950/55 px-4 backdrop-blur">
                 <AccordionTrigger className="text-left text-zinc-50 hover:no-underline">
+                  ¿Qué es HorusPass?
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-zinc-300/90">
+                  HorusPass es un addon gratuito incluido con tu suscripción: una app para guardar contraseñas y mantener tus cuentas
+                  más seguras sin fricción.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="i4" className="rounded-3xl border border-zinc-800 bg-zinc-950/55 px-4 backdrop-blur">
+                <AccordionTrigger className="text-left text-zinc-50 hover:no-underline">
                   ¿También hay servidores privados?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed text-zinc-300/90">
@@ -807,7 +864,7 @@ const Index = () => {
                   { t: "pink" as const, title: "Privacidad", desc: "VPN directa: sin espías mientras juegas." },
                   { t: "blue" as const, title: "Rendimiento", desc: "Infra propia y rutas optimizadas." },
                   { t: "green" as const, title: "Integridad", desc: "Anti‑cheat + IA vigilando 24/7." },
-                  { t: "blue" as const, title: "Privados", desc: "Alquiler de servidores para comunidades." },
+                  { t: "blue" as const, title: "HorusPass", desc: "Addon gratis para guardar contraseñas." },
                 ].map((c) => (
                   <div
                     key={c.title}
