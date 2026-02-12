@@ -17,6 +17,7 @@ import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { showSuccess } from "@/utils/toast";
+import logoHorus from "@/assets/logo_transparente.png";
 
 type Tone = "pink" | "blue" | "green";
 
@@ -257,12 +258,7 @@ function ImageCard({
       ].join(" ")}
     >
       <div className="relative">
-        <img
-          src={src}
-          alt={alt}
-          className="h-56 w-full object-cover sm:h-64"
-          loading="lazy"
-        />
+        <img src={src} alt={alt} className="h-56 w-full object-cover sm:h-64" loading="lazy" />
         <div className="pointer-events-none absolute inset-0 bg-black/40" />
         <div className="pointer-events-none absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_55%)]" />
       </div>
@@ -303,9 +299,18 @@ const Index = () => {
       <header className="relative z-10">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
           <div className="flex items-center gap-3">
-            {/* Placeholder logo (cuando subas el tuyo lo integro aquí) */}
-            <div className="grid h-11 w-11 place-items-center rounded-2xl border border-zinc-800 bg-zinc-950/60">
-              <span className="text-xs font-semibold tracking-tight text-zinc-100">HV</span>
+            <div
+              className={[
+                "grid h-11 w-11 place-items-center rounded-2xl border border-zinc-800 bg-zinc-950/60",
+                "shadow-[0_0_28px_rgba(34,211,238,.10)]",
+              ].join(" ")}
+            >
+              <img
+                src={logoHorus}
+                alt="HorusVPN logo"
+                className="h-9 w-9 object-contain [filter:drop-shadow(0_0_16px_rgba(34,211,238,.35))]"
+                loading="eager"
+              />
             </div>
             <div className="leading-tight">
               <div className="text-sm font-semibold tracking-tight text-zinc-50">HorusVPN</div>
@@ -838,7 +843,7 @@ const Index = () => {
                   Entra a HorusVPN y juega con ventaja.
                 </h3>
                 <p className="mt-3 text-pretty text-sm leading-relaxed text-zinc-300/90 sm:text-base">
-                  Súbeme tu logo y lo integro en el header y hero. Si tienes capturas de la app o del panel, las ponemos en la sección “Cómo funciona”.
+                  Si tienes capturas de la app o del panel, las ponemos en la sección “Cómo funciona” para elevar confianza.
                 </p>
 
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row">
