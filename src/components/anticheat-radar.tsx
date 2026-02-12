@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ShieldCheck, Swords, BrainCircuit } from "lucide-react";
+import { BrainCircuit, ChevronRight, ShieldCheck, Swords, Zap } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { showSuccess } from "@/utils/toast";
@@ -33,12 +33,28 @@ function genBlip(i: number): Blip {
         ? "Patrón sospechoso"
         : "Integridad verificada";
 
-  return { id: `${Date.now()}-${i}-${Math.random().toString(16).slice(2)}`, x, y, tone, label };
+  return {
+    id: `${Date.now()}-${i}-${Math.random().toString(16).slice(2)}`,
+    x,
+    y,
+    tone,
+    label,
+  };
 }
 
 function toneClasses(tone: Blip["tone"]) {
-  if (tone === "fuchsia") return { dot: "bg-fuchsia-400", ring: "ring-fuchsia-400/25", text: "text-fuchsia-200" };
-  if (tone === "emerald") return { dot: "bg-emerald-400", ring: "ring-emerald-400/25", text: "text-emerald-200" };
+  if (tone === "fuchsia")
+    return {
+      dot: "bg-fuchsia-400",
+      ring: "ring-fuchsia-400/25",
+      text: "text-fuchsia-200",
+    };
+  if (tone === "emerald")
+    return {
+      dot: "bg-emerald-400",
+      ring: "ring-emerald-400/25",
+      text: "text-emerald-200",
+    };
   return { dot: "bg-cyan-400", ring: "ring-cyan-400/25", text: "text-cyan-200" };
 }
 
@@ -128,7 +144,13 @@ export default function AntiCheatRadar() {
                   onClick={() => setActiveLabel(b.label)}
                   aria-label={b.label}
                 >
-                  <span className={["relative block h-2.5 w-2.5 rounded-full", c.dot, "shadow-[0_0_18px_rgba(34,211,238,.22)]"].join(" ")}>
+                  <span
+                    className={[
+                      "relative block h-2.5 w-2.5 rounded-full",
+                      c.dot,
+                      "shadow-[0_0_18px_rgba(34,211,238,.22)]",
+                    ].join(" ")}
+                  >
                     <span
                       className={[
                         "absolute inset-0 rounded-full opacity-60",
@@ -146,7 +168,9 @@ export default function AntiCheatRadar() {
             <div className="absolute inset-x-4 bottom-4">
               <div className="flex items-center justify-between gap-3 rounded-2xl border border-cyan-400/15 bg-cyan-500/10 px-4 py-3">
                 <div className="min-w-0">
-                  <div className="text-[11px] font-semibold tracking-[0.16em] text-zinc-200/80">ANTI‑CHEAT RADAR</div>
+                  <div className="text-[11px] font-semibold tracking-[0.16em] text-zinc-200/80">
+                    ANTI‑CHEAT RADAR
+                  </div>
                   <div className="truncate text-sm font-semibold text-cyan-100">{activeLabel}</div>
                 </div>
                 <div className="shrink-0 rounded-xl border border-cyan-400/15 bg-black/20 px-3 py-1 text-xs text-zinc-200">
@@ -173,8 +197,8 @@ export default function AntiCheatRadar() {
           </h3>
 
           <p className="text-pretty text-sm leading-relaxed text-zinc-300/90">
-            En lugar de “solo” cifrar tu conexión, HorusVPN entra a un entorno controlado donde aplicamos detección de anomalías,
-            señales de abuso y reglas anti‑cheat para mantener partidas y comunidades limpias.
+            En lugar de “solo” cifrar tu conexión, HorusVPN entra a un entorno controlado donde aplicamos detección de
+            anomalías, señales de abuso y reglas anti‑cheat para mantener partidas y comunidades limpias.
           </p>
 
           <div className="grid gap-3 sm:grid-cols-3">
