@@ -18,6 +18,7 @@ import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { showSuccess } from "@/utils/toast";
 import logoHorus from "@/assets/logo_transparente.png";
+import arenaImg from "@/assets/arena_horus.png";
 import AntiCheatWaveform from "@/components/anticheat-waveform";
 import GamesSection from "@/components/games-section";
 
@@ -432,7 +433,7 @@ const Index = () => {
               <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50 backdrop-blur">
                 <div className="relative">
                   <img
-                    src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=80"
+                    src={arenaImg}
                     alt="Gaming setup premium"
                     className="h-[320px] w-full object-cover sm:h-[420px]"
                     loading="lazy"
