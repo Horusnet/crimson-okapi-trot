@@ -22,7 +22,7 @@ import arenaImg from "@/assets/arena_horus.png";
 import conexionVpn from "@/assets/conexion_vpn.png";
 import bibliotecaJuegos from "@/assets/biblioteca_juegos.png";
 import horusPassImg from "@/assets/HorusPass.png";
-import horusServers from "@/assets/horus_servers.png";
+import horusServers from "../assets/horus_servers.png";
 import AntiCheatWaveform from "@/components/anticheat-waveform";
 import GamesSection from "@/components/games-section";
 
