@@ -138,7 +138,7 @@ function FeatureCard({
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_20%_15%,rgba(255,255,255,.07),transparent_55%)]" />
+      <div className="pointer-events-none.absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_20%_15%,rgba(255,255,255,.07),transparent_55%)]" />
       <div
         className={[
           "pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100",
@@ -377,7 +377,7 @@ const Index = () => {
                 </Pill>
               </div>
 
-              <h1 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
+              <h1 className="mt-5 text-balance.text-3xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
                 La primera biblioteca de servidores gaming
                 <span className="block text-zinc-200/90">a la que entras por VPN, con seguridad blindada.</span>
               </h1>
@@ -508,7 +508,7 @@ const Index = () => {
               </Card>
 
               <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-500/12 blur-3xl" />
-              <div className="pointer-events-none absolute -left-20 bottom-[-120px] h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
+              <div className="pointer-events-none.absolute -left-20 bottom-[-120px] h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
             </div>
           </div>
         </section>
@@ -521,7 +521,7 @@ const Index = () => {
             subtitle="Nada de VPN genérica: tu conexión entra a un entorno Horus controlado, con rendimiento gaming y capas de seguridad."
           />
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          <div className="mt-10.grid gap-4 lg:grid-cols-3">
             <FeatureCard
               t="blue"
               icon={<Server className="h-5 w-5" />}
@@ -632,7 +632,7 @@ const Index = () => {
                     <div className="flex items-start gap-3">
                       <div className={tone[r.t].text}>{r.icon}</div>
                       <div className="min-w-0">
-                        <div className="text-sm font-semibold text-zinc-50">{r.title}</div>
+                        <div className="text-sm.font-semibold text-zinc-50">{r.title}</div>
                         <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">{r.desc}</div>
                       </div>
                     </div>
@@ -680,7 +680,240 @@ const Index = () => {
         </section>
 
         {/* Suscripción */}
-        {/* ... resto del componente permanece igual, incluyendo Planes, HorusPass, Servidores privados, Juegos, FAQ y CTA final ... */}
+        <section id="planes" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <SectionTitle
+            kicker="SUSCRIPCIÓN"
+            title="Eliges un plan, desbloqueas la biblioteca HorusVPN."
+            subtitle="Planes pensados para jugadores que quieren algo estable y protegido, sin complicarse con infraestructura."
+          />
+
+          <div className="mt-10.grid gap-4 lg:grid-cols-3">
+            <PlanCard
+              t="pink"
+              name="Starter"
+              price="€9,90"
+              note="Para jugadores que quieren probar el ecosistema."
+              bullets={[
+                "Acceso a la biblioteca básica de servidores",
+                "Rendimiento estable para gaming casual",
+                "HorusPass incluido (gestor de contraseñas)",
+              ]}
+            />
+            <PlanCard
+              t="blue"
+              name="Pro"
+              price="€14,90"
+              note="Jugadores frecuentes, focus en competitivo."
+              bullets={[
+                "Acceso ampliado a servidores y modos",
+                "Rutas optimizadas para menor latencia",
+                "Soporte priorizado en incidencias",
+              ]}
+              popular
+            />
+            <PlanCard
+              t="green"
+              name="Squad"
+              price="€24,90"
+              note="Para grupos o equipos que juegan juntos."
+              bullets={[
+                "Hasta X miembros por suscripción (definir)",
+                "Slots reservados en servidores clave",
+                "Herramientas para gestionar el grupo",
+              ]}
+            />
+          </div>
+
+          <p className="mt-4 text-center text-xs text-zinc-400/85">
+            Los precios y características son de ejemplo — ajustamos números y límites cuando tengamos producción y costes definidos.
+          </p>
+        </section>
+
+        {/* Servidores privados */}
+        <section id="privados" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <SectionTitle
+            kicker="SERVIDORES PRIVADOS"
+            title="¿Quieres tu propio servidor? Horus también lo levanta."
+            subtitle="Además de la biblioteca HorusVPN, puedes alquilar servidores privados gaming con la misma capa de seguridad."
+          />
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-2 lg:items-center">
+            <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/55 p-6 backdrop-blur">
+              <div className="flex flex-wrap gap-2">
+                <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
+                  Servidores dedicados
+                </Badge>
+                <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
+                  Anti‑cheat + IA
+                </Badge>
+              </div>
+
+              <h3 className="mt-4 text-balance text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl">
+                Infraestructura propia, pero sin que tengas que ser sysadmin.
+              </h3>
+
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300/90">
+                Nos encargamos del servidor, la seguridad, las actualizaciones y la observabilidad. Tú eliges el juego, los
+                modos y las reglas. Ideal para comunidades, streamers o equipos.
+              </p>
+
+              <ul className="mt-4 space-y-3 text-sm text-zinc-200/90">
+                <li className="flex gap-2">
+                  <span className="mt-0.5 h-1.5 w-1.5 rounded-full bg-cyan-400" />
+                  Slots configurables según juego y comunidad.
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-0.5 h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  Anti‑cheat + IA con señales específicas por juego.
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-0.5 h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
+                  Integración nativa con la app HorusVPN para acceso protegido.
+                </li>
+              </ul>
+
+              <div className="mt-5 grid gap-2 sm:grid-cols-[1.4fr,1fr]">
+                <Button
+                  className="w-full rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
+                  onClick={() => showSuccess("Te contactaremos para definir tu servidor privado Horus.")}
+                >
+                  Quiero un servidor privado
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full rounded-2xl border-zinc-700 bg-zinc-950/40 text-zinc-50 hover:bg-zinc-50/5"
+                  onClick={() => showSuccess("Te mandamos info de capacidades, juegos y límites técnicos.")}
+                >
+                  Ver capacidades
+                </Button>
+              </div>
+            </Card>
+
+            <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50 backdrop-blur">
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1516031190212-da133013de50?auto=format&fit=crop&w=1600&q=80"
+                  alt="Horus Servers — racks"
+                  className="h-[420px] w-full object-cover"
+                  loading="lazy"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-black/50" />
+                <div className="pointer-events-none.absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
+              </div>
+              <div className="p-6">
+                <div className="text-sm font-semibold text-zinc-50">Horus Servers</div>
+                <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">
+                  Rack, energía, conectividad, observabilidad y seguridad gestionadas — tú solo decides qué montar arriba.
+                </div>
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        {/* Juegos soportados */}
+        <GamesSection />
+
+        {/* FAQ */}
+        <section id="faq" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <SectionTitle
+            kicker="FAQ"
+            title="Preguntas típicas antes de subirte a Horus."
+            subtitle="Los detalles técnicos y legales se terminan de cerrar cuando vayamos a producción, pero esta es la idea base."
+          />
+
+          <div className="mx-auto mt-8 max-w-2xl">
+            <Accordion type="single" collapsible className="w-full rounded-2xl border border-zinc-800 bg-zinc-950/55 p-4">
+              <AccordionItem value="q1">
+                <AccordionTrigger>¿Es una VPN clásica o algo distinto?</AccordionTrigger>
+                <AccordionContent>
+                  Es distinto: usas una app VPN, sí, pero la ruta va directa a infraestructura Horus, donde están los servidores
+                  de juego. No es “VPN a Internet genérico”, sino “VPN a un entorno controlado para gaming”.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q2">
+                <AccordionTrigger>¿Qué pasa si juego a cosas fuera de Horus?</AccordionTrigger>
+                <AccordionContent>
+                  La idea es que, cuando quieras usar Horus, abras la app VPN y entres a nuestros servidores / entorno. Para juegos
+                  o servicios fuera, simplemente juegas como siempre, sin pasar por HorusVPN.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q3">
+                <AccordionTrigger>¿El anti‑cheat mira dentro de mi PC?</AccordionTrigger>
+                <AccordionContent>
+                  El concepto es minimizar la intrusión en tu máquina. La detección se basa en señales de red, integridad y
+                  comportamiento a nivel de entorno Horus, no en un “espía” invasivo en tu PC.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q4">
+                <AccordionTrigger>¿HorusPass viene siempre incluido?</AccordionTrigger>
+                <AccordionContent>
+                  Sí, la idea es que cualquier suscripción a HorusVPN incluya HorusPass sin coste extra, para que tus contraseñas
+                  no acaben en notas, capturas o textos sin cifrar.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </section>
+
+        {/* CTA final */}
+        <section className="mx-auto max-w-6xl px-4 pb-14 pt-4 sm:px-6">
+          <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-6 backdrop-blur sm:p-8">
+            <div className="pointer-events-none absolute -left-32 top-[-80px] h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
+            <div className="pointer-events-none.absolute -right-40 bottom-[-80px] h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
+
+            <div className="relative grid gap-6 sm:grid-cols-[1.4fr,1fr] sm:items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-black/40 px-3 py-1 text-xs text-zinc-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  Etapa temprana — buscando jugadores y comunidades interesadas
+                </div>
+
+                <h2 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl">
+                  ¿Te cuadra el concepto? Súmate a la lista de acceso.
+                </h2>
+
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300/90">
+                  No estamos vendiendo aún; estamos validando el modelo con jugadores y comunidades que quieran algo mejor que una VPN
+                  genérica y servidores improvisados. Si te interesa, déjanos tu contacto.
+                </p>
+
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Button
+                    className="rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
+                    onClick={() => showSuccess("Genial — te sumamos a la lista de acceso anticipado.")}
+                  >
+                    Quiero acceso anticipado
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="rounded-2xl border-zinc-700 bg-zinc-950/40 text-zinc-50 hover:bg-zinc-50/5"
+                    onClick={() => showSuccess("Te escribimos para charlar y ver si encaja con lo que necesitas.")}
+                  >
+                    Hablar antes
+                  </Button>
+                </div>
+              </div>
+
+              <div className="space-y-3 rounded-2xl border border-zinc-800 bg-black/35 p-4 text-sm text-zinc-200">
+                <div className="flex items-start gap-2">
+                  <ShieldCheck className="mt-0.5 h-4 w-4 text-emerald-300" />
+                  <p>
+                    Foco en integridad, privacidad y experiencia competitiva. La idea es que HorusVPN sea “la forma seria” de
+                    jugar donde está disponible.
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <BrainCircuit className="mt-0.5 h-4 w-4 text-cyan-300" />
+                  <p>
+                    Toda esta UI es conceptual: cuando tengamos tu app real, replicamos y adaptamos estas piezas a tu producto.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </section>
       </main>
     </div>
   );
