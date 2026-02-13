@@ -25,6 +25,7 @@ import horusPassImg from "@/assets/HorusPass.png";
 import horusServers from "@/assets/horus_servers.png";
 import AntiCheatWaveform from "@/components/anticheat-waveform";
 import GamesSection from "@/components/games-section";
+import PlatformIconsSection from "@/components/platform-icons-section";
 
 type Tone = "pink" | "blue" | "green";
 
@@ -264,10 +265,7 @@ function PlanCard({
 
       <div className="mt-6 grid gap-2 pt-1">
         <Button
-          className={[
-            "rounded-2xl border bg-zinc-50/5 text-zinc-50 hover:bg-zinc-50/10",
-            s.border,
-          ].join(" ")}
+          className={["rounded-2xl border bg-zinc-50/5 text-zinc-50 hover:bg-zinc-50/10", s.border].join(" ")}
           onClick={() =>
             showSuccess(
               `Solicitud enviada: plan ${plan.name} (${billing === "monthly" ? "mensual" : "anual"})`,
@@ -571,6 +569,9 @@ const Index = () => {
           </div>
         </section>
 
+        {/* NUEVO: iconos plataformas */}
+        <PlatformIconsSection />
+
         {/* 2. Cómo funciona */}
         <section id="como-funciona" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
           <SectionTitle
@@ -613,12 +614,7 @@ const Index = () => {
               alt="Conexión VPN Horus"
               caption="Conexión VPN dirigida — acceso seguro a servidores Horus"
             />
-            <ImageCard
-              t="pink"
-              src={horusPassImg}
-              alt="HorusPass"
-              caption="HorusPass — gestor de contraseñas incluido"
-            />
+            <ImageCard t="pink" src={horusPassImg} alt="HorusPass" caption="HorusPass — gestor de contraseñas incluido" />
           </div>
         </section>
 
@@ -744,7 +740,6 @@ const Index = () => {
                   </div>
                 ))}
               </div>
-              {/* Botones de detalles técnicos / HorusPass se han eliminado tal como pediste antes */}
             </Card>
 
             <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50 backdrop-blur">
