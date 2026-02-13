@@ -22,6 +22,7 @@ import arenaImg from "@/assets/arena_horus.png";
 import conexionVpn from "@/assets/conexion_vpn.png";
 import bibliotecaJuegos from "@/assets/biblioteca_juegos.png";
 import horusPassImg from "@/assets/HorusPass.png";
+import horusServers from "@/assets/horus_servers.png";
 import AntiCheatWaveform from "@/components/anticheat-waveform";
 import GamesSection from "@/components/games-section";
 
@@ -661,8 +662,8 @@ const Index = () => {
             <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50 backdrop-blur">
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1526378722445-4c6b1b7b5f3b?auto=format&fit=crop&w=1600&q=80"
-                  alt="Infraestructura / seguridad"
+                  src={horusServers}
+                  alt="Horus Network — servidores"
                   className="h-[460px] w-full object-cover"
                   loading="lazy"
                 />
