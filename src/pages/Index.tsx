@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   ChevronRight,
   ShieldCheck,
@@ -138,7 +138,7 @@ function FeatureCard({
         </div>
       </div>
 
-      <div className="pointer-events-none.absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_20%_15%,rgba(255,255,255,.07),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_20%_15%,rgba(255,255,255,.07),transparent_55%)]" />
       <div
         className={[
           "pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100",
@@ -151,26 +151,73 @@ function FeatureCard({
   );
 }
 
-function PlanCard({
-  t,
-  name,
-  price,
-  note,
-  bullets,
-  popular,
-}: {
+type BillingPeriod = "monthly" | "yearly";
+
+type PlanDefinition = {
   t: Tone;
   name: string;
-  price: string;
+  monthlyPrice: string;
+  yearlyPrice: string;
   note: string;
   bullets: string[];
   popular?: boolean;
+};
+
+const PLANS: PlanDefinition[] = [
+  {
+    t: "pink",
+    name: "Starter",
+    monthlyPrice: "€9,90",
+    yearlyPrice: "€99",
+    note: "Para jugadores que quieren probar el ecosistema.",
+    bullets: [
+      "Acceso a la biblioteca básica de servidores",
+      "Rendimiento estable para gaming casual",
+      "HorusPass incluido (gestor de contraseñas)",
+    ],
+  },
+  {
+    t: "blue",
+    name: "Pro",
+    monthlyPrice: "€14,90",
+    yearlyPrice: "€149",
+    note: "Jugadores frecuentes, focus en competitivo.",
+    bullets: [
+      "Acceso ampliado a servidores y modos",
+      "Rutas optimizadas para menor latencia",
+      "Soporte priorizado en incidencias",
+    ],
+    popular: true,
+  },
+  {
+    t: "green",
+    name: "Squad",
+    monthlyPrice: "€24,90",
+    yearlyPrice: "€249",
+    note: "Para grupos o equipos que juegan juntos.",
+    bullets: [
+      "Hasta X miembros por suscripción (definir)",
+      "Slots reservados en servidores clave",
+      "Herramientas para gestionar el grupo",
+    ],
+  },
+];
+
+function PlanCard({
+  plan,
+  billing,
+}: {
+  plan: PlanDefinition;
+  billing: BillingPeriod;
 }) {
-  const s = tone[t];
+  const s = tone[plan.t];
+  const price = billing === "monthly" ? plan.monthlyPrice : plan.yearlyPrice;
+  const badgeText = plan.popular ? "Más elegido" : billing === "yearly" ? "Ahorra ~2 meses" : undefined;
+
   return (
     <Card
       className={[
-        "relative overflow-hidden rounded-3xl border bg-zinc-950/55 p-6 backdrop-blur",
+        "relative flex h-full flex-col overflow-hidden rounded-3xl border bg-zinc-950/55 p-6 backdrop-blur",
         "ring-1",
         s.ring,
         s.border,
@@ -180,28 +227,32 @@ function PlanCard({
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            <div className="text-lg font-semibold tracking-tight text-zinc-50">{name}</div>
-            {popular ? (
+            <div className="text-lg font-semibold tracking-tight text-zinc-50">{plan.name}</div>
+            {badgeText ? (
               <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-0.5 text-[11px] text-cyan-200">
-                Más elegido
+                {badgeText}
               </Badge>
             ) : null}
           </div>
-          <div className="mt-1 text-sm text-zinc-300/90">{note}</div>
+          <div className="mt-1 text-sm text-zinc-300/90">{plan.note}</div>
         </div>
 
         <div className={["rounded-2xl border px-3 py-2 text-right", s.border, s.chip].join(" ")}>
-          <div className="text-xs text-zinc-200/80">desde</div>
+          <div className="text-xs text-zinc-200/80">
+            {billing === "monthly" ? "mensual" : "anual"}
+          </div>
           <div className={["text-xl font-semibold leading-none", s.text].join(" ")}>{price}</div>
-          <div className="mt-1 text-[11px] text-zinc-200/70">/ mes</div>
+          <div className="mt-1 text-[11px] text-zinc-200/70">
+            {billing === "monthly" ? "/ mes" : "~ equivalente / mes"}
+          </div>
         </div>
       </div>
 
       <Separator className="my-5 bg-zinc-800/70" />
 
-      <ul className="space-y-3">
-        {bullets.map((b) => (
-          <li key={b} className="flex items-start gap-2 text-sm text-zinc-200/90">
+      <ul className="space-y-3 text-sm text-zinc-200/90">
+        {plan.bullets.map((b) => (
+          <li key={b} className="flex items-start gap-2">
             <span className={["mt-0.5 grid h-5 w-5 place-items-center rounded-full border", s.border].join(" ")}>
               <Check className={["h-3.5 w-3.5", s.text].join(" ")} />
             </span>
@@ -210,15 +261,19 @@ function PlanCard({
         ))}
       </ul>
 
-      <div className="mt-6 grid gap-2">
+      <div className="mt-6 grid gap-2 pt-1">
         <Button
           className={[
             "rounded-2xl border bg-zinc-50/5 text-zinc-50 hover:bg-zinc-50/10",
             s.border,
           ].join(" ")}
-          onClick={() => showSuccess(`Solicitud enviada: plan ${name}`)}
+          onClick={() =>
+            showSuccess(
+              `Solicitud enviada: plan ${plan.name} (${billing === "monthly" ? "mensual" : "anual"})`,
+            )
+          }
         >
-          Elegir {name}
+          Elegir {plan.name}
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
         <Button
@@ -233,9 +288,9 @@ function PlanCard({
       <div
         className={[
           "pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full blur-3xl opacity-60",
-          t === "pink" ? "bg-fuchsia-500/12" : "",
-          t === "blue" ? "bg-cyan-500/12" : "",
-          t === "green" ? "bg-emerald-500/12" : "",
+          plan.t === "pink" ? "bg-fuchsia-500/12" : "",
+          plan.t === "blue" ? "bg-cyan-500/12" : "",
+          plan.t === "green" ? "bg-emerald-500/12" : "",
         ].join(" ")}
       />
     </Card>
@@ -282,6 +337,8 @@ function ImageCard({
 }
 
 const Index = () => {
+  const [billing, setBilling] = useState<BillingPeriod>("monthly");
+
   const stats = useMemo(
     () => [
       { k: "Infra propia", v: "Rutas optimizadas", t: "blue" as const },
@@ -359,7 +416,7 @@ const Index = () => {
 
       <main className="relative z-10">
         {/* Hero con imagen */}
-        <section className="mx-auto max-w-6xl px-4 pb-10 pt-6 sm:px-6 sm:pt-10">
+        <section className="mx-auto max-w-6xl px-4.pb-10 pt-6 sm:px-6 sm:pt-10">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <div className="flex flex-wrap gap-2">
@@ -377,7 +434,7 @@ const Index = () => {
                 </Pill>
               </div>
 
-              <h1 className="mt-5 text-balance.text-3xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
+              <h1 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
                 La primera biblioteca de servidores gaming
                 <span className="block text-zinc-200/90">a la que entras por VPN, con seguridad blindada.</span>
               </h1>
@@ -508,7 +565,7 @@ const Index = () => {
               </Card>
 
               <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-500/12 blur-3xl" />
-              <div className="pointer-events-none.absolute -left-20 bottom-[-120px] h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
+              <div className="pointer-events-none absolute -left-20 bottom-[-120px] h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
             </div>
           </div>
         </section>
@@ -521,7 +578,7 @@ const Index = () => {
             subtitle="Nada de VPN genérica: tu conexión entra a un entorno Horus controlado, con rendimiento gaming y capas de seguridad."
           />
 
-          <div className="mt-10.grid gap-4 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
             <FeatureCard
               t="blue"
               icon={<Server className="h-5 w-5" />}
@@ -632,7 +689,7 @@ const Index = () => {
                     <div className="flex items-start gap-3">
                       <div className={tone[r.t].text}>{r.icon}</div>
                       <div className="min-w-0">
-                        <div className="text-sm.font-semibold text-zinc-50">{r.title}</div>
+                        <div className="text-sm font-semibold text-zinc-50">{r.title}</div>
                         <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">{r.desc}</div>
                       </div>
                     </div>
@@ -687,41 +744,34 @@ const Index = () => {
             subtitle="Planes pensados para jugadores que quieren algo estable y protegido, sin complicarse con infraestructura."
           />
 
-          <div className="mt-10.grid gap-4 lg:grid-cols-3">
-            <PlanCard
-              t="pink"
-              name="Starter"
-              price="€9,90"
-              note="Para jugadores que quieren probar el ecosistema."
-              bullets={[
-                "Acceso a la biblioteca básica de servidores",
-                "Rendimiento estable para gaming casual",
-                "HorusPass incluido (gestor de contraseñas)",
-              ]}
-            />
-            <PlanCard
-              t="blue"
-              name="Pro"
-              price="€14,90"
-              note="Jugadores frecuentes, focus en competitivo."
-              bullets={[
-                "Acceso ampliado a servidores y modos",
-                "Rutas optimizadas para menor latencia",
-                "Soporte priorizado en incidencias",
-              ]}
-              popular
-            />
-            <PlanCard
-              t="green"
-              name="Squad"
-              price="€24,90"
-              note="Para grupos o equipos que juegan juntos."
-              bullets={[
-                "Hasta X miembros por suscripción (definir)",
-                "Slots reservados en servidores clave",
-                "Herramientas para gestionar el grupo",
-              ]}
-            />
+          {/* Toggle mensual / anual */}
+          <div className="mx-auto mt-6 flex max-w-md items-center justify-center gap-3 rounded-full border border-zinc-800 bg-zinc-950/70 px-2 py-1 text-xs text-zinc-200">
+            <button
+              type="button"
+              onClick={() => setBilling("monthly")}
+              className={[
+                "flex-1 rounded-full px-3 py-1 transition-colors",
+                billing === "monthly" ? "bg-cyan-500/20 text-cyan-100" : "text-zinc-300 hover:bg-zinc-800/60",
+              ].join(" ")}
+            >
+              Mensual
+            </button>
+            <button
+              type="button"
+              onClick={() => setBilling("yearly")}
+              className={[
+                "flex-1 rounded-full px-3 py-1 transition-colors",
+                billing === "yearly" ? "bg-emerald-500/20 text-emerald-100" : "text-zinc-300 hover:bg-zinc-800/60",
+              ].join(" ")}
+            >
+              Anual <span className="ml-1 text-[10px] text-emerald-300">(-~2 meses)</span>
+            </button>
+          </div>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-3 lg:items-stretch">
+            {PLANS.map((plan) => (
+              <PlanCard key={plan.name} plan={plan} billing={billing} />
+            ))}
           </div>
 
           <p className="mt-4 text-center text-xs text-zinc-400/85">
@@ -799,7 +849,7 @@ const Index = () => {
                   loading="lazy"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-black/50" />
-                <div className="pointer-events-none.absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-0.opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
               </div>
               <div className="p-6">
                 <div className="text-sm font-semibold text-zinc-50">Horus Servers</div>
@@ -860,7 +910,7 @@ const Index = () => {
         <section className="mx-auto max-w-6xl px-4 pb-14 pt-4 sm:px-6">
           <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-6 backdrop-blur sm:p-8">
             <div className="pointer-events-none absolute -left-32 top-[-80px] h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
-            <div className="pointer-events-none.absolute -right-40 bottom-[-80px] h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
+            <div className="pointer-events-none absolute -right-40 bottom-[-80px] h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
 
             <div className="relative grid gap-6 sm:grid-cols-[1.4fr,1fr] sm:items-center">
               <div>
