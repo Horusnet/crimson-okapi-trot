@@ -1,4 +1,4 @@
-import React from "react";
+import type { ReactNode } from "react";
 import { Smartphone, Monitor, Apple, Linux } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
@@ -6,7 +6,7 @@ type Platform = {
   id: "iphone" | "android" | "windows" | "mac" | "linux";
   title: string;
   subtitle: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
 };
 
 const PLATFORMS: Platform[] = [
