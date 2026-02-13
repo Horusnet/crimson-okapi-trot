@@ -544,22 +544,22 @@ const Index = () => {
 
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
             <ImageCard
-              t="blue"
-              src={conexionVpn}
-              alt="Conexión VPN Horus"
-              caption="Conexión VPN dirigida"
-            />
-            <ImageCard
               t="green"
               src={bibliotecaJuegos}
               alt="Biblioteca de juegos Horus"
-              caption="Biblioteca de juegos"
+              caption="Biblioteca de juegos — selección por juego, modo y región"
+            />
+            <ImageCard
+              t="blue"
+              src={conexionVpn}
+              alt="Conexión VPN Horus"
+              caption="Conexión VPN dirigida — acceso seguro a servidores Horus"
             />
             <ImageCard
               t="pink"
               src={horusPassImg}
               alt="HorusPass"
-              caption="HorusPass (addon gratis)"
+              caption="HorusPass — gestor de contraseñas incluido"
             />
           </div>
         </section>
