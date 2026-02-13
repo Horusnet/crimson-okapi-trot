@@ -594,10 +594,30 @@ const Index = () => {
 
               <div className="mt-5 grid gap-3 lg:grid-cols-2">
                 {[
-                  { t: "pink" as const, icon: <ShieldCheck className="h-5 w-5" />, title: "Privacidad real", desc: "Tu sesión viaja por un túnel hacia infraestructura Horus: reduces exposición mientras juegas." },
-                  { t: "green" as const, icon: <Swords className="h-5 w-5" />, title: "Anti‑cheat instalado", desc: "Defensa activa para mantener integridad en partidas, servidores y comunidades." },
-                  { t: "blue" as const, icon: <BrainCircuit className="h-5 w-5" />, title: "IA vigilando continuamente", desc: "Señales de anomalías y patrones sospechosos: respuesta más rápida, menos abuso." },
-                  { t: "blue" as const, icon: <KeyRound className="h-5 w-5" />, title: "HorusPass (gratis)", desc: "Addon incluido para guardar contraseñas: menos fricción y más seguridad en tus cuentas." },
+                  {
+                    t: "pink" as const,
+                    icon: <ShieldCheck className="h-5 w-5" />,
+                    title: "Privacidad real",
+                    desc: "Tu sesión viaja por un túnel hacia infraestructura Horus: reduces exposición mientras juegas.",
+                  },
+                  {
+                    t: "green" as const,
+                    icon: <Swords className="h-5 w-5" />,
+                    title: "Anti‑cheat instalado",
+                    desc: "Defensa activa para mantener integridad en partidas, servidores y comunidades.",
+                  },
+                  {
+                    t: "blue" as const,
+                    icon: <BrainCircuit className="h-5 w-5" />,
+                    title: "IA vigilando continuamente",
+                    desc: "Señales de anomalías y patrones sospechosos: respuesta más rápida, menos abuso.",
+                  },
+                  {
+                    t: "blue" as const,
+                    icon: <KeyRound className="h-5 w-5" />,
+                    title: "HorusPass (gratis)",
+                    desc: "Addon incluido para guardar contraseñas: menos fricción y más seguridad en tus cuentas.",
+                  },
                 ].map((r) => (
                   <div
                     key={r.title}
@@ -707,6 +727,79 @@ const Index = () => {
                 "Soporte avanzado",
               ]}
             />
+          </div>
+
+          {/* HorusPass: Transparencia */}
+          <div className="mt-8">
+            <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/55 p-6 backdrop-blur sm:p-7">
+              <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                <div className="max-w-2xl">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/15 bg-cyan-500/10 px-3 py-1 text-xs text-zinc-200">
+                    <KeyRound className="h-3.5 w-3.5 text-cyan-300" />
+                    <span>HorusPass</span>
+                  </div>
+                  <h3 className="mt-4 text-balance text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl">
+                    Origen, compatibilidad y cómo lo mantenemos
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-300/90">
+                    HorusPass nace sobre una base de servidor de bóveda de contraseñas ya consolidada dentro del ecosistema compatible con
+                    Bitwarden. Eso nos permite enfocarnos en operar, asegurar y adaptar la experiencia a Horus (branding, despliegue,
+                    defaults y hardening), manteniendo un comportamiento familiar para usuarios y clientes.
+                  </p>
+
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {["Compatibilidad con clientes Bitwarden (según configuración)", "Operación y hardening a nivel Horus", "Enfoque en estabilidad y mantenimiento", "Transparencia en licencias y atribuciones"].map(
+                      (x) => (
+                        <div
+                          key={x}
+                          className="flex items-start gap-2 rounded-3xl border border-zinc-800 bg-black/25 p-4 text-sm text-zinc-200/90"
+                        >
+                          <span className="mt-0.5 grid h-5 w-5 place-items-center rounded-full border border-cyan-400/25 bg-cyan-500/10">
+                            <Check className="h-3.5 w-3.5 text-cyan-200" />
+                          </span>
+                          <span className="leading-relaxed">{x}</span>
+                        </div>
+                      ),
+                    )}
+                  </div>
+
+                  <p className="mt-4 text-[11px] leading-relaxed text-zinc-400/85">
+                    Nota: HorusPass es un servicio complementario. La compatibilidad exacta puede variar según políticas de despliegue,
+                    configuración y versión.
+                  </p>
+                </div>
+
+                <div className="w-full lg:max-w-sm">
+                  <div className="rounded-[1.75rem] border border-fuchsia-400/15 bg-fuchsia-500/10 p-5">
+                    <div className="text-sm font-semibold text-zinc-50">Qué significa para ti</div>
+                    <ul className="mt-3 space-y-2 text-sm text-zinc-200/90">
+                      <li className="flex items-start gap-2">
+                        <span className="mt-1 h-2 w-2 rounded-full bg-fuchsia-400" />
+                        <span>Onboarding rápido y UX conocida.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="mt-1 h-2 w-2 rounded-full bg-cyan-400" />
+                        <span>Mejoras centradas en operación y seguridad.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="mt-1 h-2 w-2 rounded-full bg-emerald-400" />
+                        <span>Roadmap enfocado en necesidades Horus.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-3 rounded-[1.75rem] border border-emerald-400/15 bg-emerald-500/10 p-5">
+                    <div className="text-xs font-semibold tracking-[0.14em] text-emerald-200/90">SUGERENCIA</div>
+                    <div className="mt-2 text-sm text-zinc-200/90">
+                      Si quieres, enlazo aquí una página “Acerca de HorusPass” con detalles técnicos, licencias y política de soporte.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
+              <div className="pointer-events-none absolute -left-28 bottom-[-140px] h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
+            </Card>
           </div>
         </section>
 
