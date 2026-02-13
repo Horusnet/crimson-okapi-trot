@@ -359,7 +359,7 @@ const Index = () => {
 
       {/* Header */}
       <header className="relative z-10">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
+        <div className="flex w-full items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <div
               className={[
@@ -415,7 +415,7 @@ const Index = () => {
 
       <main className="relative z-10">
         {/* 1. Hero */}
-        <section className="mx-auto max-w-6xl px-4 pb-10 pt-6 sm:px-6 sm:pt-10">
+        <section className="w-full px-4 pb-10 pt-6 sm:px-6 sm:pt-10 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <div className="flex flex-wrap gap-2">
@@ -573,7 +573,7 @@ const Index = () => {
         <PlatformIconsSection />
 
         {/* 2. Cómo funciona */}
-        <section id="como-funciona" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <section id="como-funciona" className="w-full px-4 py-12 sm:px-6 lg:px-8">
           <SectionTitle
             kicker="CÓMO FUNCIONA"
             title="Una experiencia simple: seleccionas, conectas y juegas."
@@ -624,7 +624,7 @@ const Index = () => {
         </section>
 
         {/* 4. Suscripción */}
-        <section id="planes" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <section id="planes" className="w-full px-4 py-12 sm:px-6 lg:px-8">
           <SectionTitle
             kicker="SUSCRIPCIÓN"
             title="Eliges un plan, desbloqueas la biblioteca HorusVPN."
@@ -666,7 +666,7 @@ const Index = () => {
         </section>
 
         {/* 5. Seguridad */}
-        <section id="seguridad" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <section id="seguridad" className="w-full px-4 py-12 sm:px-6 lg:px-8">
           <SectionTitle
             kicker="SEGURIDAD"
             title="Blindado por diseño: privacidad, anti‑cheat e IA."
@@ -764,7 +764,7 @@ const Index = () => {
         </section>
 
         {/* 6. Servidores privados */}
-        <section id="privados" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <section id="privados" className="w-full px-4 py-12 sm:px-6 lg:px-8">
           <SectionTitle
             kicker="SERVIDORES PRIVADOS"
             title="¿Quieres tu propio servidor? Horus también lo levanta."
@@ -846,7 +846,7 @@ const Index = () => {
         </section>
 
         {/* 7. FAQ */}
-        <section id="faq" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <section id="faq" className="w-full px-4 py-12 sm:px-6 lg:px-8">
           <SectionTitle
             kicker="FAQ"
             title="Preguntas típicas antes de subirte a Horus."
@@ -892,7 +892,7 @@ const Index = () => {
         </section>
 
         {/* 8. CTA final */}
-        <section className="mx-auto max-w-6xl px-4 pb-14 pt-4 sm:px-6">
+        <section className="w-full px-4 pb-14 pt-4 sm:px-6 lg:px-8">
           <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-6 backdrop-blur sm:p-8">
             <div className="pointer-events-none absolute -left-32 top-[-80px] h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
             <div className="pointer-events-none absolute -right-40 bottom-[-80px] h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />

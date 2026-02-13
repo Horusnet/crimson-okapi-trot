@@ -19,7 +19,7 @@ const PLATFORMS: Platform[] = [
 
 export default function PlatformIconsSection() {
   return (
-    <section aria-label="Plataformas" className="mx-auto max-w-6xl px-4 pb-2 sm:px-6">
+    <section aria-label="Plataformas" className="w-full px-4 pb-2 sm:px-6 lg:px-8">
       <Card className="overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/45 backdrop-blur">
         <div className="grid gap-4 p-5 sm:p-6 lg:grid-cols-[1.2fr,2fr] lg:items-center">
           <div>

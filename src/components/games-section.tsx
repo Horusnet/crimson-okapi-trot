@@ -46,7 +46,7 @@ const GAMES = [
 
 export default function GamesSection() {
   return (
-    <section id="juegos" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <section id="juegos" className="w-full px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
         <div className="text-xs font-semibold tracking-[0.18em] text-zinc-300/70">JUEGOS</div>
         <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl">
