@@ -19,6 +19,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { showSuccess } from "@/utils/toast";
 import logoHorus from "@/assets/logo_transparente.png";
 import arenaImg from "@/assets/arena_horus.png";
+import conexionVpn from "@/assets/conexion_vpn.png";
+import bibliotecaJuegos from "@/assets/biblioteca_juegos.png";
+import horusPassImg from "@/assets/HorusPass.png";
 import AntiCheatWaveform from "@/components/anticheat-waveform";
 import GamesSection from "@/components/games-section";
 
@@ -542,20 +545,20 @@ const Index = () => {
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
             <ImageCard
               t="blue"
-              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1600&q=80"
-              alt="Panel / interface estilo gaming"
-              caption="Panel y biblioteca (referencia visual)"
+              src={conexionVpn}
+              alt="Conexión VPN Horus"
+              caption="Conexión VPN dirigida"
             />
             <ImageCard
               t="green"
-              src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1600&q=80"
-              alt="Gaming competitivo"
-              caption="Optimizado para sesiones competitivas"
+              src={bibliotecaJuegos}
+              alt="Biblioteca de juegos Horus"
+              caption="Biblioteca de juegos"
             />
             <ImageCard
               t="pink"
-              src="https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=1600&q=80"
-              alt="Password manager / seguridad"
+              src={horusPassImg}
+              alt="HorusPass"
               caption="HorusPass (addon gratis)"
             />
           </div>
