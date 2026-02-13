@@ -214,6 +214,8 @@ function PlanCard({
 }) {
   const s = tone[plan.t];
   const price = billing === "monthly" ? plan.monthlyPrice : plan.yearlyPrice;
+  const cleaned = (price ?? "").replace("€", "").trim();
+  const formattedPrice = `${cleaned} €`;
   const badgeText = plan.popular ? "Más elegido" : billing === "yearly" ? "Ahorra ~2 meses" : undefined;
 
   return (
@@ -243,7 +245,7 @@ function PlanCard({
           <div className="text-xs text-zinc-200/80">
             {billing === "monthly" ? "mensual" : "anual"}
           </div>
-          <div className={["text-xl font-semibold leading-none", s.text].join(" ")}>{price}</div>
+          <div className={["text-xl font-semibold leading-none", s.text].join(" ")}>{formattedPrice}</div>
           <div className="mt-1 text-[11px] text-zinc-200/70">
             {billing === "monthly" ? "/ mes" : "~ equivalente / mes"}
           </div>
