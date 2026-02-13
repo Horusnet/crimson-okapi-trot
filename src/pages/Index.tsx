@@ -339,13 +339,6 @@ const Index = () => {
 
           <div className="flex items-center gap-2">
             <Button
-              variant="ghost"
-              className="hidden rounded-2xl text-zinc-200 hover:bg-zinc-50/5 hover:text-zinc-50 sm:inline-flex"
-              onClick={() => showSuccess("Demo solicitada — te contactaremos.")}
-            >
-              Pedir demo
-            </Button>
-            <Button
               className="rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
               onClick={() => showSuccess("Acceso anticipado solicitado.")}
             >

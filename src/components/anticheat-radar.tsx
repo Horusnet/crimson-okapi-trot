@@ -228,9 +228,9 @@ export default function AntiCheatRadar() {
             <Button
               variant="outline"
               className="rounded-2xl border-zinc-700 bg-zinc-950/40 text-zinc-50 hover:bg-zinc-50/5"
-              onClick={() => showSuccess("Perfecto — agendamos una demo del sistema anti‑cheat.")}
+              onClick={() => showSuccess("Te contactamos para ver necesidades y disponibilidad.")}
             >
-              Pedir demo
+              Contactar
             </Button>
           </div>
 
