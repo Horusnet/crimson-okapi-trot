@@ -435,7 +435,7 @@ const Index = () => {
 
               <h1 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
                 La primera biblioteca de servidores gaming
-                <span className="block text-zinc-200/90 font-hero">a la que entras por VPN, con seguridad blindada.</span>
+                <span className="block text-zinc-200/90 font-gaming">a la que entras por VPN, con seguridad blindada.</span>
               </h1>
 
               <p className="mt-4 max-w-xl text-pretty text-sm leading-relaxed text-zinc-300/90 sm:text-base">
