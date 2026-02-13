@@ -242,7 +242,7 @@ function PlanCard({
           <div className="text-xs text-zinc-200/80">
             {billing === "monthly" ? "mensual" : "anual"}
           </div>
-          <div className={["text-xl font-semibold leading-none", s.text].join(" ")}>{price}</div>
+          <div className={["text-xl font-semibold.leading-none", s.text].join(" ")}>{price}</div>
           <div className="mt-1 text-[11px] text-zinc-200/70">
             {billing === "monthly" ? "/ mes" : "~ equivalente / mes"}
           </div>
@@ -262,7 +262,7 @@ function PlanCard({
         ))}
       </ul>
 
-      <div className="mt-6.grid gap-2 pt-1">
+      <div className="mt-6 grid gap-2 pt-1">
         <Button
           className={[
             "rounded-2xl border bg-zinc-50/5 text-zinc-50 hover:bg-zinc-50/10",
@@ -386,20 +386,20 @@ const Index = () => {
             <a className="hover:text-zinc-50" href="#como-funciona">
               Cómo funciona
             </a>
-            <a className="hover:text-zinc-50" href="#seguridad">
-              Seguridad
-            </a>
             <a className="hover:text-zinc-50" href="#planes">
               Suscripción
+            </a>
+            <a className="hover:text-zinc-50" href="#seguridad">
+              Seguridad
             </a>
             <a className="hover:text-zinc-50" href="#privados">
               Privados
             </a>
-            <a className="hover:text-zinc-50" href="#faq">
-              FAQ
-            </a>
             <a className="hover:text-zinc-50" href="#juegos">
               Juegos
+            </a>
+            <a className="hover:text-zinc-50" href="#faq">
+              FAQ
             </a>
           </nav>
 
@@ -416,7 +416,7 @@ const Index = () => {
       </header>
 
       <main className="relative z-10">
-        {/* Hero */}
+        {/* 1. Hero */}
         <section className="mx-auto max-w-6xl px-4 pb-10 pt-6 sm:px-6 sm:pt-10">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
@@ -571,7 +571,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Cómo funciona */}
+        {/* 2. Cómo funciona */}
         <section id="como-funciona" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
           <SectionTitle
             kicker="CÓMO FUNCIONA"
@@ -600,7 +600,7 @@ const Index = () => {
             />
           </div>
 
-          <div className="mt-8.grid gap-4 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
             <ImageCard
               t="green"
               src={bibliotecaJuegos}
@@ -622,8 +622,50 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Seguridad */}
-        <section id="seguridad" className="mx-auto max-w-6xl px-4.py-12 sm:px-6">
+        {/* 3. Suscripción */}
+        <section id="planes" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <SectionTitle
+            kicker="SUSCRIPCIÓN"
+            title="Eliges un plan, desbloqueas la biblioteca HorusVPN."
+            subtitle="Planes pensados para jugadores que quieren algo estable y protegido, sin complicarse con infraestructura."
+          />
+
+          <div className="mx-auto mt-6 flex max-w-md items-center justify-center gap-3 rounded-full border border-zinc-800 bg-zinc-950/70 px-2 py-1 text-xs text-zinc-200">
+            <button
+              type="button"
+              onClick={() => setBilling("monthly")}
+              className={[
+                "flex-1 rounded-full px-3 py-1 transition-colors",
+                billing === "monthly" ? "bg-cyan-500/20 text-cyan-100" : "text-zinc-300 hover:bg-zinc-800/60",
+              ].join(" ")}
+            >
+              Mensual
+            </button>
+            <button
+              type="button"
+              onClick={() => setBilling("yearly")}
+              className={[
+                "flex-1 rounded-full px-3 py-1 transition-colors",
+                billing === "yearly" ? "bg-emerald-500/20 text-emerald-100" : "text-zinc-300 hover:bg-zinc-800/60",
+              ].join(" ")}
+            >
+              Anual <span className="ml-1 text-[10px] text-emerald-300">(-~2 meses)</span>
+            </button>
+          </div>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-3 lg:items-stretch">
+            {PLANS.map((plan) => (
+              <PlanCard key={plan.name} plan={plan} billing={billing} />
+            ))}
+          </div>
+
+          <p className="mt-4 text-center text-xs text-zinc-400/85">
+            Los precios y características son de ejemplo — ajustamos números y límites cuando tengamos producción y costes definidos.
+          </p>
+        </section>
+
+        {/* 4. Seguridad */}
+        <section id="seguridad" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
           <SectionTitle
             kicker="SEGURIDAD"
             title="Blindado por diseño: privacidad, anti‑cheat e IA."
@@ -643,7 +685,7 @@ const Index = () => {
                 <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
                   Infra Horus controlada
                 </Badge>
-                <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
+                <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-1.text-[11px] text-emerald-200">
                   Vigilancia IA 24/7
                 </Badge>
                 <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
@@ -697,7 +739,7 @@ const Index = () => {
                   </div>
                 ))}
               </div>
-              {/* aquí he eliminado los dos botones pedidos, nada más */}
+              {/* Botones de detalles técnicos / HorusPass eliminados */}
             </Card>
 
             <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50 backdrop-blur">
@@ -709,11 +751,11 @@ const Index = () => {
                   loading="lazy"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-black/50" />
-                <div className="pointer-events-none.absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-0.opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
               </div>
               <div className="p-6">
                 <div className="text-sm font-semibold text-zinc-50">Horus Network</div>
-                <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">
+                <div className="mt-1 text-sm.leading-relaxed text-zinc-300/90">
                   Conexión dirigida hacia servidores Horus, con capas de control y observabilidad para rendimiento y seguridad.
                 </div>
               </div>
@@ -721,50 +763,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Suscripción */}
-        <section id="planes" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-          <SectionTitle
-            kicker="SUSCRIPCIÓN"
-            title="Eliges un plan, desbloqueas la biblioteca HorusVPN."
-            subtitle="Planes pensados para jugadores que quieren algo estable y protegido, sin complicarse con infraestructura."
-          />
-
-          <div className="mx-auto mt-6 flex max-w-md items-center justify-center gap-3 rounded-full border border-zinc-800 bg-zinc-950/70 px-2 py-1 text-xs text-zinc-200">
-            <button
-              type="button"
-              onClick={() => setBilling("monthly")}
-              className={[
-                "flex-1 rounded-full px-3 py-1 transition-colors",
-                billing === "monthly" ? "bg-cyan-500/20 text-cyan-100" : "text-zinc-300 hover:bg-zinc-800/60",
-              ].join(" ")}
-            >
-              Mensual
-            </button>
-            <button
-              type="button"
-              onClick={() => setBilling("yearly")}
-              className={[
-                "flex-1 rounded-full px-3 py-1 transition-colors",
-                billing === "yearly" ? "bg-emerald-500/20 text-emerald-100" : "text-zinc-300 hover:bg-zinc-800/60",
-              ].join(" ")}
-            >
-              Anual <span className="ml-1 text-[10px] text-emerald-300">(-~2 meses)</span>
-            </button>
-          </div>
-
-          <div className="mt-8 grid gap-5 lg:grid-cols-3 lg:items-stretch">
-            {PLANS.map((plan) => (
-              <PlanCard key={plan.name} plan={plan} billing={billing} />
-            ))}
-          </div>
-
-          <p className="mt-4 text-center text-xs text-zinc-400/85">
-            Los precios y características son de ejemplo — ajustamos números y límites cuando tengamos producción y costes definidos.
-          </p>
-        </section>
-
-        {/* Servidores privados */}
-        <section id="privados" className="mx-auto max-w-6xl px-4.py-12 sm:px-6">
+        {/* 5. Servidores privados */}
+        <section id="privados" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
           <SectionTitle
             kicker="SERVIDORES PRIVADOS"
             title="¿Quieres tu propio servidor? Horus también lo levanta."
@@ -777,7 +777,7 @@ const Index = () => {
                 <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
                   Servidores dedicados
                 </Badge>
-                <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
+                <Badge className="rounded-full border-0.bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
                   Anti‑cheat + IA
                 </Badge>
               </div>
@@ -833,11 +833,11 @@ const Index = () => {
                   loading="lazy"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-black/50" />
-                <div className="pointer-events-none.absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-0.opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
               </div>
               <div className="p-6">
                 <div className="text-sm font-semibold text-zinc-50">Horus Servers</div>
-                <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">
+                <div className="mt-1 text-sm.leading-relaxed text-zinc-300/90">
                   Rack, energía, conectividad, observabilidad y seguridad gestionadas — tú solo decides qué montar arriba.
                 </div>
               </div>
@@ -845,11 +845,11 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Juegos soportados */}
+        {/* 6. Juegos soportados */}
         <GamesSection />
 
-        {/* FAQ */}
-        <section id="faq" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        {/* 7. FAQ */}
+        <section id="faq" className="mx-auto max-w-6xl px-4.py-12 sm:px-6">
           <SectionTitle
             kicker="FAQ"
             title="Preguntas típicas antes de subirte a Horus."
@@ -890,7 +890,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* CTA final */}
+        {/* 8. CTA final */}
         <section className="mx-auto max-w-6xl px-4 pb-14 pt-4 sm:px-6">
           <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-6 backdrop-blur sm:p-8">
             <div className="pointer-events-none absolute -left-32 top-[-80px] h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
@@ -938,7 +938,7 @@ const Index = () => {
                     jugar donde está disponible.
                   </p>
                 </div>
-                <div className="flex items-start gap-2">
+                <div className="flex.items-start gap-2">
                   <BrainCircuit className="mt-0.5 h-4 w-4 text-cyan-300" />
                   <p>
                     Toda esta UI es conceptual: cuando tengamos tu app real, replicamos y adaptamos estas piezas a tu producto.
