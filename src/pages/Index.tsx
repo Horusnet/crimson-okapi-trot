@@ -19,6 +19,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { showSuccess } from "@/utils/toast";
 import logoHorus from "@/assets/logo_transparente.png";
 import AntiCheatWaveform from "@/components/anticheat-waveform";
+import GamesSection from "@/components/games-section";
 
 type Tone = "pink" | "blue" | "green";
 
@@ -334,6 +335,9 @@ const Index = () => {
             </a>
             <a className="hover:text-zinc-50" href="#faq">
               FAQ
+            </a>
+            <a className="hover:text-zinc-50" href="#juegos">
+              Juegos
             </a>
           </nav>
 
@@ -868,6 +872,9 @@ const Index = () => {
             />
           </div>
         </section>
+
+        {/* NUEVA SECCIÓN: Juegos soportados */}
+        <GamesSection />
 
         {/* FAQ */}
         <section id="faq" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
