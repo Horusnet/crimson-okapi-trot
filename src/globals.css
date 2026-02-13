@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -93,6 +95,30 @@
 @layer base {
   * {
     @apply border-border;
+  }
+
+  /* Tipografía custom para el hero (serif elegante) */
+  .font-hero {
+    font-family: 'Playfair Display', ui-serif, Georgia, 'Times New Roman', serif;
+    font-weight: 600;
+  }
+
+  /* Tipografía gaming: Orbitron (para usar ad-hoc) */
+  .font-gaming {
+    font-family: 'Orbitron', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 0 6px 18px rgba(34,211,238,0.06);
+    text-transform: none;
+  }
+
+  /* Aplicar gaming a headings globalmente sin tocar párrafos ni UI densa */
+  h1, h2, h3, h4 {
+    font-family: 'Orbitron', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    letter-spacing: 0.01em;
+    font-weight: 700;
   }
 
   body {
