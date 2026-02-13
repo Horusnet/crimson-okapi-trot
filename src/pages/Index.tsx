@@ -142,7 +142,7 @@ function FeatureCard({
       <div className="pointer-events-none absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_20%_15%,rgba(255,255,255,.07),transparent_55%)]" />
       <div
         className={[
-          "pointer-events-none.absolute -right-20 -top-20 h-56 w-56 rounded-full blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100",
+          "pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full blur-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100",
           t === "pink" ? "bg-fuchsia-500/18" : "",
           t === "blue" ? "bg-cyan-500/18" : "",
           t === "green" ? "bg-emerald-500/18" : "",
@@ -225,9 +225,9 @@ function PlanCard({
         s.glow,
       ].join(" ")}
     >
-      <div className="flex.items-start justify-between gap-3">
+      <div className="flex items-start justify-between gap-3">
         <div>
-          <div className="flex.items-center gap-2">
+          <div className="flex items-center gap-2">
             <div className="text-lg font-semibold tracking-tight text-zinc-50">{plan.name}</div>
             {badgeText ? (
               <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-0.5 text-[11px] text-cyan-200">
@@ -235,7 +235,7 @@ function PlanCard({
               </Badge>
             ) : null}
           </div>
-          <div className="mt-1 text-sm.text-zinc-300/90">{plan.note}</div>
+          <div className="mt-1 text-sm text-zinc-300/90">{plan.note}</div>
         </div>
 
         <div className={["rounded-2xl border px-3 py-2 text-right", s.border, s.chip].join(" ")}>
@@ -251,9 +251,9 @@ function PlanCard({
 
       <Separator className="my-5 bg-zinc-800/70" />
 
-      <ul className="space-y-3 text-sm.text-zinc-200/90">
+      <ul className="space-y-3 text-sm text-zinc-200/90">
         {plan.bullets.map((b) => (
-          <li key={b} className="flex.items-start gap-2">
+          <li key={b} className="flex items-start gap-2">
             <span className={["mt-0.5 grid h-5 w-5 place-items-center rounded-full border", s.border].join(" ")}>
               <Check className={["h-3.5 w-3.5", s.text].join(" ")} />
             </span>
@@ -288,7 +288,7 @@ function PlanCard({
 
       <div
         className={[
-          "pointer-events-none.absolute -left-24 -top-24 h-72 w-72 rounded-full blur-3xl opacity-60",
+          "pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full blur-3xl opacity-60",
           plan.t === "pink" ? "bg-fuchsia-500/12" : "",
           plan.t === "blue" ? "bg-cyan-500/12" : "",
           plan.t === "green" ? "bg-emerald-500/12" : "",
@@ -320,16 +320,16 @@ function ImageCard({
       ].join(" ")}
     >
       <div className="relative">
-        <img src={src} alt={alt} className="h-56 w-full.object-cover sm:h-64" loading="lazy" />
-        <div className="pointer-events-none.absolute inset-0 bg-black/40" />
-        <div className="pointer-events-none.absolute inset-0.opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_55%)]" />
+        <img src={src} alt={alt} className="h-56 w-full object-cover sm:h-64" loading="lazy" />
+        <div className="pointer-events-none absolute inset-0 bg-black/40" />
+        <div className="pointer-events-none absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_55%)]" />
       </div>
       <div className="p-5">
-        <div className="flex.items-center gap-2">
+        <div className="flex items-center gap-2">
           <span className={["h-2 w-2 rounded-full", s.dot].join(" ")} />
-          <div className="text-sm.font-semibold text-zinc-50">{caption}</div>
+          <div className="text-sm font-semibold text-zinc-50">{caption}</div>
         </div>
-        <div className="mt-2 text-sm.leading-relaxed text-zinc-300/90">
+        <div className="mt-2 text-sm leading-relaxed text-zinc-300/90">
           Visual de referencia (lo reemplazamos por imágenes reales de la app/panel cuando las tengas).
         </div>
       </div>
@@ -356,13 +356,13 @@ const Index = () => {
         <div className="absolute -left-40 top-[-140px] h-[520px] w-[520px] rounded-full bg-fuchsia-500/12 blur-3xl" />
         <div className="absolute -right-48 top-[40px] h-[560px] w-[560px] rounded-full bg-cyan-500/12 blur-3xl" />
         <div className="absolute left-1/3 top-[520px] h-[520px] w-[520px] rounded-full bg-emerald-500/10 blur-3xl" />
-        <div className="absolute inset-0.opacity-[0.18] [background-image:linear-gradient(to_right,rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:56px_56px]" />
+        <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:56px_56px]" />
       </div>
 
       {/* Header */}
       <header className="relative z-10">
-        <div className="mx-auto flex.max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
-          <div className="flex.items-center gap-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
+          <div className="flex items-center gap-3">
             <div
               className={[
                 "grid h-11 w-11 place-items-center rounded-2xl border border-zinc-800 bg-zinc-950/60",
@@ -372,17 +372,17 @@ const Index = () => {
               <img
                 src={logoHorus}
                 alt="HorusVPN logo"
-                className="h-9 w-9.object-contain [filter:drop-shadow(0_0_16px_rgba(34,211,238,.35))]"
+                className="h-9 w-9 object-contain [filter:drop-shadow(0_0_16px_rgba(34,211,238,.35))]"
                 loading="eager"
               />
             </div>
             <div className="leading-tight">
-              <div className="text-sm.font-semibold tracking-tight text-zinc-50">HorusVPN</div>
-              <div className="text-xs.text-zinc-300/80">Gaming Ecosystem</div>
+              <div className="text-sm font-semibold tracking-tight text-zinc-50">HorusVPN</div>
+              <div className="text-xs text-zinc-300/80">Gaming Ecosystem</div>
             </div>
           </div>
 
-          <nav className="hidden.items-center gap-6 text-sm.text-zinc-200/85 md:flex">
+          <nav className="hidden items-center gap-6 text-sm text-zinc-200/85 md:flex">
             <a className="hover:text-zinc-50" href="#como-funciona">
               Cómo funciona
             </a>
@@ -403,7 +403,7 @@ const Index = () => {
             </a>
           </nav>
 
-          <div className="flex.items-center gap-2">
+          <div className="flex items-center gap-2">
             <Button
               className="rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
               onClick={() => showSuccess("Acceso anticipado solicitado.")}
@@ -418,9 +418,9 @@ const Index = () => {
       <main className="relative z-10">
         {/* 1. Hero */}
         <section className="mx-auto max-w-6xl px-4 pb-10 pt-6 sm:px-6 sm:pt-10">
-          <div className="grid.gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <div className="flex.flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2">
                 <Pill t="pink" icon={<GlobeLock className="h-3.5 w-3.5" />}>
                   VPN directa a servidores Horus
                 </Pill>
@@ -437,18 +437,18 @@ const Index = () => {
 
               <h1 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
                 La primera biblioteca de servidores gaming
-                <span className="block.text-zinc-200/90">a la que entras por VPN, con seguridad blindada.</span>
+                <span className="block text-zinc-200/90">a la que entras por VPN, con seguridad blindada.</span>
               </h1>
 
-              <p className="mt-4.max-w-xl text-pretty text-sm.leading-relaxed text-zinc-300/90 sm:text-base">
+              <p className="mt-4 max-w-xl text-pretty text-sm leading-relaxed text-zinc-300/90 sm:text-base">
                 HorusVPN es un ecosistema único: te conectas con nuestra app VPN directamente a nuestros servidores de juegos por una
                 suscripción mensual. Además, ofrecemos alquiler de servidores privados gaming con la misma protección.
-                <span className="mt-2 block.text-zinc-200/90">
+                <span className="mt-2 block text-zinc-200/90">
                   Incluye gratis <span className="font-semibold text-cyan-200">HorusPass</span>: app para guardar tus contraseñas.
                 </span>
               </p>
 
-              <div className="mt-6 flex.flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button
                   className="rounded-2xl border border-fuchsia-400/25 bg-fuchsia-500/15 text-fuchsia-100 hover:bg-fuchsia-500/22"
                   onClick={() => showSuccess("Solicitud enviada: quiero acceso a HorusVPN.")}
@@ -468,7 +468,7 @@ const Index = () => {
                 </Button>
               </div>
 
-              <div className="mt-7 grid.grid-cols-3 gap-3 sm:max-w-lg">
+              <div className="mt-7 grid grid-cols-3 gap-3 sm:max-w-lg">
                 {stats.map((s) => (
                   <div
                     key={s.k}
@@ -479,13 +479,13 @@ const Index = () => {
                       tone[s.t].border,
                     ].join(" ")}
                   >
-                    <div className="text-xs.text-zinc-300/80">{s.k}</div>
-                    <div className={["mt-1 text-sm.font-semibold", tone[s.t].text].join(" ")}>{s.v}</div>
+                    <div className="text-xs text-zinc-300/80">{s.k}</div>
+                    <div className={["mt-1 text-sm font-semibold", tone[s.t].text].join(" ")}>{s.v}</div>
                   </div>
                 ))}
               </div>
 
-              <p className="mt-3 text-[11px].leading-relaxed text-zinc-400/80">
+              <p className="mt-3 text-[11px] leading-relaxed text-zinc-400/80">
                 “Lag 0” se refiere a infraestructura propia optimizada y rutas dedicadas; la latencia real puede variar según ubicación y proveedor.
               </p>
             </div>
@@ -496,25 +496,25 @@ const Index = () => {
                   <img
                     src={arenaImg}
                     alt="Gaming setup premium"
-                    className="h-[320px] w-full.object-cover sm:h-[420px]"
+                    className="h-[320px] w-full object-cover sm:h-[420px]"
                     loading="lazy"
                   />
-                  <div className="pointer-events-none.absolute inset-0 bg-black/45" />
-                  <div className="pointer-events-none.absolute inset-0.opacity-75 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.12),transparent_60%)]" />
+                  <div className="pointer-events-none absolute inset-0 bg-black/45" />
+                  <div className="pointer-events-none absolute inset-0 opacity-75 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.12),transparent_60%)]" />
                 </div>
 
                 <div className="p-6">
-                  <div className="flex.items-center justify-between gap-3">
+                  <div className="flex items-center justify-between gap-3">
                     <div>
-                      <div className="text-sm.font-semibold text-zinc-50">Horus Path</div>
-                      <div className="mt-1.text-xs text-zinc-300/80">App → VPN → Servidores Horus → Juego</div>
+                      <div className="text-sm font-semibold text-zinc-50">Horus Path</div>
+                      <div className="mt-1 text-xs text-zinc-300/80">App → VPN → Servidores Horus → Juego</div>
                     </div>
-                    <Badge className="rounded-full border-0.bg-emerald-500/15 px-2 py-0.5 text-[11px] text-emerald-200">
+                    <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-0.5 text-[11px] text-emerald-200">
                       Protegido
                     </Badge>
                   </div>
 
-                  <div className="mt-5 grid.gap-3 sm:grid-cols-3">
+                  <div className="mt-5 grid gap-3 sm:grid-cols-3">
                     {[
                       { t: "pink" as const, label: "Privacidad", value: "Sin espías" },
                       { t: "blue" as const, label: "Rendimiento", value: "Rutas pro" },
@@ -529,8 +529,8 @@ const Index = () => {
                           tone[x.t].border,
                         ].join(" ")}
                       >
-                        <div className="text-xs.text-zinc-300/80">{x.label}</div>
-                        <div className={["mt-1 text-sm.font-semibold", tone[x.t].text].join(" ")}>
+                        <div className="text-xs text-zinc-300/80">{x.label}</div>
+                        <div className={["mt-1 text-sm font-semibold", tone[x.t].text].join(" ")}>
                           {x.value}
                         </div>
                       </div>
@@ -538,16 +538,16 @@ const Index = () => {
                   </div>
 
                   <Button
-                    className="mt-4 w-full.rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
+                    className="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
                     onClick={() => showSuccess("Conectando a la biblioteca de servidores…")}
                   >
                     Entrar a la biblioteca
                     <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
 
-                  <div className="mt-3 flex.items-center justify-between rounded-2xl border border-cyan-400/15 bg-cyan-500/10 px-4 py-3">
-                    <div className="flex.items-center gap-2 text-xs.text-zinc-200">
-                      <KeyRound className="h-4 w-4.text-cyan-300" />
+                  <div className="mt-3 flex items-center justify-between rounded-2xl border border-cyan-400/15 bg-cyan-500/10 px-4 py-3">
+                    <div className="flex items-center gap-2 text-xs text-zinc-200">
+                      <KeyRound className="h-4 w-4 text-cyan-300" />
                       <span>
                         Addon gratis: <span className="font-semibold text-cyan-200">HorusPass</span>
                       </span>
@@ -565,8 +565,8 @@ const Index = () => {
                 </div>
               </Card>
 
-              <div className="pointer-events-none.absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-500/12 blur-3xl" />
-              <div className="pointer-events-none.absolute -left-20 bottom-[-120px] h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
+              <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-500/12 blur-3xl" />
+              <div className="pointer-events-none absolute -left-20 bottom-[-120px] h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
             </div>
           </div>
         </section>
@@ -579,7 +579,7 @@ const Index = () => {
             subtitle="Nada de VPN genérica: tu conexión entra a un entorno Horus controlado, con rendimiento gaming y capas de seguridad."
           />
 
-          <div className="mt-10 grid.gap-4 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
             <FeatureCard
               t="blue"
               icon={<Server className="h-5 w-5" />}
@@ -600,7 +600,7 @@ const Index = () => {
             />
           </div>
 
-          <div className="mt-8 grid.gap-4 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
             <ImageCard
               t="green"
               src={bibliotecaJuegos}
@@ -623,7 +623,9 @@ const Index = () => {
         </section>
 
         {/* 3. Juegos soportados */}
-        <GamesSection />
+        <section id="juegos">
+          <GamesSection />
+        </section>
 
         {/* 4. Suscripción */}
         <section id="planes" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
@@ -633,7 +635,7 @@ const Index = () => {
             subtitle="Planes pensados para jugadores que quieren algo estable y protegido, sin complicarse con infraestructura."
           />
 
-          <div className="mx-auto mt-6 flex.max-w-md items-center justify-center gap-3 rounded-full border border-zinc-800 bg-zinc-950/70 px-2 py-1 text-xs.text-zinc-200">
+          <div className="mx-auto mt-6 flex max-w-md items-center justify-center gap-3 rounded-full border border-zinc-800 bg-zinc-950/70 px-2 py-1 text-xs text-zinc-200">
             <button
               type="button"
               onClick={() => setBilling("monthly")}
@@ -652,23 +654,23 @@ const Index = () => {
                 billing === "yearly" ? "bg-emerald-500/20 text-emerald-100" : "text-zinc-300 hover:bg-zinc-800/60",
               ].join(" ")}
             >
-              Anual <span className="ml-1 text-[10px].text-emerald-300">(-~2 meses)</span>
+              Anual <span className="ml-1 text-[10px] text-emerald-300">(-~2 meses)</span>
             </button>
           </div>
 
-          <div className="mt-8 grid.gap-5 lg:grid-cols-3 lg:items-stretch">
+          <div className="mt-8 grid gap-5 lg:grid-cols-3 lg:items-stretch">
             {PLANS.map((plan) => (
               <PlanCard key={plan.name} plan={plan} billing={billing} />
             ))}
           </div>
 
-          <p className="mt-4 text-center text-xs.text-zinc-400/85">
+          <p className="mt-4 text-center text-xs text-zinc-400/85">
             Los precios y características son de ejemplo — ajustamos números y límites cuando tengamos producción y costes definidos.
           </p>
         </section>
 
         {/* 5. Seguridad */}
-        <section id="seguridad" className="mx-auto max-w-6xl px-4.py-12 sm:px-6">
+        <section id="seguridad" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
           <SectionTitle
             kicker="SEGURIDAD"
             title="Blindado por diseño: privacidad, anti‑cheat e IA."
@@ -679,24 +681,24 @@ const Index = () => {
             <AntiCheatWaveform />
           </div>
 
-          <div className="mt-4 grid.gap-4 lg:grid-cols-3 lg:items-stretch">
+          <div className="mt-4 grid gap-4 lg:grid-cols-3 lg:items-stretch">
             <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/55 p-6 backdrop-blur lg:col-span-2">
-              <div className="flex.flex-wrap gap-2">
-                <Badge className="rounded-full border-0.bg-fuchsia-500/15 px-2 py-1 text-[11px] text-fuchsia-200">
+              <div className="flex flex-wrap gap-2">
+                <Badge className="rounded-full border-0 bg-fuchsia-500/15 px-2 py-1 text-[11px] text-fuchsia-200">
                   Sin espías en tu PC mientras juegas
                 </Badge>
-                <Badge className="rounded-full border-0.bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
+                <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
                   Infra Horus controlada
                 </Badge>
-                <Badge className="rounded-full border-0.bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
+                <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
                   Vigilancia IA 24/7
                 </Badge>
-                <Badge className="rounded-full border-0.bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
+                <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
                   HorusPass gratis
                 </Badge>
               </div>
 
-              <div className="mt-5 grid.gap-3 lg:grid-cols-2">
+              <div className="mt-5 grid gap-3 lg:grid-cols-2">
                 {[
                   {
                     t: "pink" as const,
@@ -732,17 +734,17 @@ const Index = () => {
                       tone[r.t].border,
                     ].join(" ")}
                   >
-                    <div className="flex.items-start gap-3">
+                    <div className="flex items-start gap-3">
                       <div className={tone[r.t].text}>{r.icon}</div>
                       <div className="min-w-0">
-                        <div className="text-sm.font-semibold text-zinc-50">{r.title}</div>
-                        <div className="mt-1 text-sm.leading-relaxed text-zinc-300/90">{r.desc}</div>
+                        <div className="text-sm font-semibold text-zinc-50">{r.title}</div>
+                        <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">{r.desc}</div>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
-              {/* Botones de detalles técnicos / HorusPass eliminados */}
+              {/* Botones de detalles técnicos / HorusPass se han eliminado tal como pediste antes */}
             </Card>
 
             <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50 backdrop-blur">
@@ -750,15 +752,15 @@ const Index = () => {
                 <img
                   src={horusServers}
                   alt="Horus Network — servidores"
-                  className="h-[460px] w-full.object-cover"
+                  className="h-[460px] w-full object-cover"
                   loading="lazy"
                 />
-                <div className="pointer-events-none.absolute inset-0 bg-black/50" />
-                <div className="pointer-events-none.absolute inset-0.opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-black/50" />
+                <div className="pointer-events-none absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
               </div>
               <div className="p-6">
-                <div className="text-sm.font-semibold text-zinc-50">Horus Network</div>
-                <div className="mt-1 text-sm.leading-relaxed text-zinc-300/90">
+                <div className="text-sm font-semibold text-zinc-50">Horus Network</div>
+                <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">
                   Conexión dirigida hacia servidores Horus, con capas de control y observabilidad para rendimiento y seguridad.
                 </div>
               </div>
@@ -767,51 +769,51 @@ const Index = () => {
         </section>
 
         {/* 6. Servidores privados */}
-        <section id="privados" className="mx-auto max-w-6xl px-4.py-12 sm:px-6">
+        <section id="privados" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
           <SectionTitle
             kicker="SERVIDORES PRIVADOS"
             title="¿Quieres tu propio servidor? Horus también lo levanta."
             subtitle="Además de la biblioteca HorusVPN, puedes alquilar servidores privados gaming con la misma capa de seguridad."
           />
 
-          <div className="mt-10 grid.gap-4 lg:grid-cols-2 lg:items-center">
+          <div className="mt-10 grid gap-4 lg:grid-cols-2 lg:items-center">
             <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/55 p-6 backdrop-blur">
-              <div className="flex.flex-wrap gap-2">
-                <Badge className="rounded-full border-0.bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
+              <div className="flex flex-wrap gap-2">
+                <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
                   Servidores dedicados
                 </Badge>
-                <Badge className="rounded-full border-0.bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
+                <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
                   Anti‑cheat + IA
                 </Badge>
               </div>
 
-              <h3 className="mt-4.text-balance text-xl.font-semibold tracking-tight text-zinc-50 sm:text-2xl">
+              <h3 className="mt-4 text-balance text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl">
                 Infraestructura propia, pero sin que tengas que ser sysadmin.
               </h3>
 
-              <p className="mt-3 text-sm.leading-relaxed text-zinc-300/90">
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300/90">
                 Nos encargamos del servidor, la seguridad, las actualizaciones y la observabilidad. Tú eliges el juego, los
                 modos y las reglas. Ideal para comunidades, streamers o equipos.
               </p>
 
-              <ul className="mt-4.space-y-3 text-sm.text-zinc-200/90">
-                <li className="flex.gap-2">
-                  <span className="mt-0.5 h-1.5 w-1.5.rounded-full bg-cyan-400" />
+              <ul className="mt-4 space-y-3 text-sm text-zinc-200/90">
+                <li className="flex gap-2">
+                  <span className="mt-0.5 h-1.5 w-1.5 rounded-full bg-cyan-400" />
                   Slots configurables según juego y comunidad.
                 </li>
-                <li className="flex.gap-2">
-                  <span className="mt-0.5 h-1.5 w-1.5.rounded-full bg-emerald-400" />
+                <li className="flex gap-2">
+                  <span className="mt-0.5 h-1.5 w-1.5 rounded-full bg-emerald-400" />
                   Anti‑cheat + IA con señales específicas por juego.
                 </li>
-                <li className="flex.gap-2">
-                  <span className="mt-0.5 h-1.5 w-1.5.rounded-full bg-fuchsia-400" />
+                <li className="flex gap-2">
+                  <span className="mt-0.5 h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
                   Integración nativa con la app HorusVPN para acceso protegido.
                 </li>
               </ul>
 
-              <div className="mt-5 grid.gap-2 sm:grid-cols-[1.4fr,1fr]">
+              <div className="mt-5 grid gap-2 sm:grid-cols-[1.4fr,1fr]">
                 <Button
-                  className="w-full.rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
+                  className="w-full rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
                   onClick={() => showSuccess("Te contactaremos para definir tu servidor privado Horus.")}
                 >
                   Quiero un servidor privado
@@ -819,7 +821,7 @@ const Index = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full.rounded-2xl border-zinc-700 bg-zinc-950/40 text-zinc-50 hover:bg-zinc-50/5"
+                  className="w-full rounded-2xl border-zinc-700 bg-zinc-950/40 text-zinc-50 hover:bg-zinc-50/5"
                   onClick={() => showSuccess("Te mandamos info de capacidades, juegos y límites técnicos.")}
                 >
                   Ver capacidades
@@ -832,15 +834,15 @@ const Index = () => {
                 <img
                   src="https://images.unsplash.com/photo-1516031190212-da133013de50?auto=format&fit=crop&w=1600&q=80"
                   alt="Horus Servers — racks"
-                  className="h-[420px] w-full.object-cover"
+                  className="h-[420px] w-full object-cover"
                   loading="lazy"
                 />
-                <div className="pointer-events-none.absolute inset-0 bg-black/50" />
-                <div className="pointer-events-none.absolute inset-0.opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-black/50" />
+                <div className="pointer-events-none absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
               </div>
               <div className="p-6">
-                <div className="text-sm.font-semibold text-zinc-50">Horus Servers</div>
-                <div className="mt-1 text-sm.leading-relaxed text-zinc-300/90">
+                <div className="text-sm font-semibold text-zinc-50">Horus Servers</div>
+                <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">
                   Rack, energía, conectividad, observabilidad y seguridad gestionadas — tú solo decides qué montar arriba.
                 </div>
               </div>
@@ -849,15 +851,19 @@ const Index = () => {
         </section>
 
         {/* 7. FAQ */}
-        <section id="faq" className="mx-auto max-w-6xl px-4.py-12 sm:px-6">
+        <section id="faq" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
           <SectionTitle
             kicker="FAQ"
             title="Preguntas típicas antes de subirte a Horus."
             subtitle="Los detalles técnicos y legales se terminan de cerrar cuando vayamos a producción, pero esta es la idea base."
           />
 
-          <div className="mx-auto mt-8.max-w-2xl">
-            <Accordion type="single" collapsible className="w-full.rounded-2xl border border-zinc-800 bg-zinc-950/55 p-4">
+          <div className="mx-auto mt-8 max-w-2xl">
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full rounded-2xl border border-zinc-800 bg-zinc-950/55 p-4"
+            >
               <AccordionItem value="q1">
                 <AccordionTrigger>¿Es una VPN clásica o algo distinto?</AccordionTrigger>
                 <AccordionContent>
@@ -893,26 +899,26 @@ const Index = () => {
         {/* 8. CTA final */}
         <section className="mx-auto max-w-6xl px-4 pb-14 pt-4 sm:px-6">
           <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/60 p-6 backdrop-blur sm:p-8">
-            <div className="pointer-events-none.absolute -left-32 top-[-80px] h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
-            <div className="pointer-events-none.absolute -right-40.bottom-[-80px] h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
+            <div className="pointer-events-none absolute -left-32 top-[-80px] h-72 w-72 rounded-full bg-cyan-500/15 blur-3xl" />
+            <div className="pointer-events-none absolute -right-40 bottom-[-80px] h-80 w-80 rounded-full bg-fuchsia-500/15 blur-3xl" />
 
-            <div className="relative grid.gap-6 sm:grid-cols-[1.4fr,1fr] sm:items-center">
+            <div className="relative grid gap-6 sm:grid-cols-[1.4fr,1fr] sm:items-center">
               <div>
-                <div className="inline-flex.items-center gap-2 rounded-full border border-zinc-800 bg-black/40 px-3 py-1 text-xs.text-zinc-200">
-                  <span className="h-1.5 w-1.5.rounded-full bg-emerald-400" />
+                <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-black/40 px-3 py-1 text-xs text-zinc-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                   Etapa temprana — buscando jugadores y comunidades interesadas
                 </div>
 
-                <h2 className="mt-4.text-balance text-2xl.font-semibold tracking-tight text-zinc-50 sm:text-3xl">
+                <h2 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl">
                   ¿Te cuadra el concepto? Súmate a la lista de acceso.
                 </h2>
 
-                <p className="mt-3 text-sm.leading-relaxed text-zinc-300/90">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300/90">
                   No estamos vendiendo aún; estamos validando el modelo con jugadores y comunidades que quieran algo mejor que una VPN
                   genérica y servidores improvisados. Si te interesa, déjanos tu contacto.
                 </p>
 
-                <div className="mt-5 flex.flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Button
                     className="rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
                     onClick={() => showSuccess("Genial — te sumamos a la lista de acceso anticipado.")}
@@ -930,16 +936,16 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="space-y-3 rounded-2xl border border-zinc-800 bg-black/35 p-4 text-sm.text-zinc-200">
-                <div className="flex.items-start gap-2">
-                  <ShieldCheck className="mt-0.5 h-4 w-4.text-emerald-300" />
+              <div className="space-y-3 rounded-2xl border border-zinc-800 bg-black/35 p-4 text-sm text-zinc-200">
+                <div className="flex items-start gap-2">
+                  <ShieldCheck className="mt-0.5 h-4 w-4 text-emerald-300" />
                   <p>
                     Foco en integridad, privacidad y experiencia competitiva. La idea es que HorusVPN sea “la forma seria” de
                     jugar donde está disponible.
                   </p>
                 </div>
-                <div className="flex.items-start gap-2">
-                  <BrainCircuit className="mt-0.5 h-4 w-4.text-cyan-300" />
+                <div className="flex items-start gap-2">
+                  <BrainCircuit className="mt-0.5 h-4 w-4 text-cyan-300" />
                   <p>
                     Toda esta UI es conceptual: cuando tengamos tu app real, replicamos y adaptamos estas piezas a tu producto.
                   </p>
