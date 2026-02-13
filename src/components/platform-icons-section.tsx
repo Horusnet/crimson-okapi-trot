@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Smartphone, Monitor, Apple, Linux } from "lucide-react";
+import { Smartphone, Monitor, Apple, Terminal } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 type Platform = {
@@ -14,7 +14,7 @@ const PLATFORMS: Platform[] = [
   { id: "android", title: "Android", subtitle: "App móvil", icon: <Smartphone className="h-5 w-5" /> },
   { id: "windows", title: "Windows", subtitle: "Desktop", icon: <Monitor className="h-5 w-5" /> },
   { id: "mac", title: "Mac", subtitle: "macOS", icon: <Apple className="h-5 w-5" /> },
-  { id: "linux", title: "Linux", subtitle: "CLI / Desktop", icon: <Linux className="h-5 w-5" /> },
+  { id: "linux", title: "Linux", subtitle: "CLI / Desktop", icon: <Terminal className="h-5 w-5" /> },
 ];
 
 export default function PlatformIconsSection() {
