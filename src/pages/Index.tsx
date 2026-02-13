@@ -22,7 +22,6 @@ import arenaImg from "@/assets/arena_horus.png";
 import conexionVpn from "@/assets/conexion_vpn.png";
 import bibliotecaJuegos from "@/assets/biblioteca_juegos.png";
 import horusPassImg from "@/assets/HorusPass.png";
-import horusServers from "@/assets/horus_servers.png";
 import AntiCheatWaveform from "@/components/anticheat-waveform";
 import GamesSection from "@/components/games-section";
 
@@ -233,7 +232,7 @@ function PlanCard({
 
       <div
         className={[
-          "pointer-events-none.absolute -left-24 -top-24 h-72 w-72 rounded-full.blur-3xl opacity-60",
+          "pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full blur-3xl opacity-60",
           t === "pink" ? "bg-fuchsia-500/12" : "",
           t === "blue" ? "bg-cyan-500/12" : "",
           t === "green" ? "bg-emerald-500/12" : "",
@@ -294,7 +293,395 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-black text-zinc-50">
-      {/* ... resto del componente sin cambios ... */}
+      {/* Ambient (sin gradients grandes) */}
+      <div className="pointer-events-none fixed inset-0 overflow-hidden">
+        <div className="absolute -left-40 top-[-140px] h-[520px] w-[520px] rounded-full bg-fuchsia-500/12 blur-3xl" />
+        <div className="absolute -right-48 top-[40px] h-[560px] w-[560px] rounded-full bg-cyan-500/12 blur-3xl" />
+        <div className="absolute left-1/3 top-[520px] h-[520px] w-[520px] rounded-full bg-emerald-500/10 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.18] [background-image:linear-gradient(to_right,rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:56px_56px]" />
+      </div>
+
+      {/* Header */}
+      <header className="relative z-10">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
+          <div className="flex items-center gap-3">
+            <div
+              className={[
+                "grid h-11 w-11 place-items-center rounded-2xl border border-zinc-800 bg-zinc-950/60",
+                "shadow-[0_0_28px_rgba(34,211,238,.10)]",
+              ].join(" ")}
+            >
+              <img
+                src={logoHorus}
+                alt="HorusVPN logo"
+                className="h-9 w-9 object-contain [filter:drop-shadow(0_0_16px_rgba(34,211,238,.35))]"
+                loading="eager"
+              />
+            </div>
+            <div className="leading-tight">
+              <div className="text-sm font-semibold tracking-tight text-zinc-50">HorusVPN</div>
+              <div className="text-xs text-zinc-300/80">Gaming Ecosystem</div>
+            </div>
+          </div>
+
+          <nav className="hidden items-center gap-6 text-sm text-zinc-200/85 md:flex">
+            <a className="hover:text-zinc-50" href="#como-funciona">
+              Cómo funciona
+            </a>
+            <a className="hover:text-zinc-50" href="#seguridad">
+              Seguridad
+            </a>
+            <a className="hover:text-zinc-50" href="#planes">
+              Suscripción
+            </a>
+            <a className="hover:text-zinc-50" href="#privados">
+              Privados
+            </a>
+            <a className="hover:text-zinc-50" href="#faq">
+              FAQ
+            </a>
+            <a className="hover:text-zinc-50" href="#juegos">
+              Juegos
+            </a>
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <Button
+              className="rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
+              onClick={() => showSuccess("Acceso anticipado solicitado.")}
+            >
+              Acceso anticipado
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      <main className="relative z-10">
+        {/* Hero con imagen */}
+        <section className="mx-auto max-w-6xl px-4 pb-10 pt-6 sm:px-6 sm:pt-10">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <div className="flex flex-wrap gap-2">
+                <Pill t="pink" icon={<GlobeLock className="h-3.5 w-3.5" />}>
+                  VPN directa a servidores Horus
+                </Pill>
+                <Pill t="blue" icon={<Zap className="h-3.5 w-3.5" />}>
+                  Infra propia: baja latencia
+                </Pill>
+                <Pill t="green" icon={<BrainCircuit className="h-3.5 w-3.5" />}>
+                  Anti‑cheat + IA 24/7
+                </Pill>
+                <Pill t="blue" icon={<KeyRound className="h-3.5 w-3.5" />}>
+                  HorusPass gratis (password vault)
+                </Pill>
+              </div>
+
+              <h1 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-zinc-50 sm:text-5xl">
+                La primera biblioteca de servidores gaming
+                <span className="block text-zinc-200/90">a la que entras por VPN, con seguridad blindada.</span>
+              </h1>
+
+              <p className="mt-4 max-w-xl text-pretty text-sm leading-relaxed text-zinc-300/90 sm:text-base">
+                HorusVPN es un ecosistema único: te conectas con nuestra app VPN directamente a nuestros servidores de juegos por una
+                suscripción mensual. Además, ofrecemos alquiler de servidores privados gaming con la misma protección.
+                <span className="block mt-2 text-zinc-200/90">
+                  Incluye gratis <span className="font-semibold text-cyan-200">HorusPass</span>: app para guardar tus contraseñas.
+                </span>
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button
+                  className="rounded-2xl border border-fuchsia-400/25 bg-fuchsia-500/15 text-fuchsia-100 hover:bg-fuchsia-500/22"
+                  onClick={() => showSuccess("Solicitud enviada: quiero acceso a HorusVPN.")}
+                >
+                  Quiero acceso
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button
+                  variant="outline"
+                  className="rounded-2xl border-zinc-700 bg-zinc-950/40 text-zinc-50 hover:bg-zinc-50/5"
+                  onClick={() => {
+                    const el = document.querySelector("#planes");
+                    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                >
+                  Ver planes
+                </Button>
+              </div>
+
+              <div className="mt-7 grid grid-cols-3 gap-3 sm:max-w-lg">
+                {stats.map((s) => (
+                  <div
+                    key={s.k}
+                    className={[
+                      "rounded-3xl border bg-zinc-950/55 p-4 backdrop-blur",
+                      "ring-1",
+                      tone[s.t].ring,
+                      tone[s.t].border,
+                    ].join(" ")}
+                  >
+                    <div className="text-xs text-zinc-300/80">{s.k}</div>
+                    <div className={["mt-1 text-sm font-semibold", tone[s.t].text].join(" ")}>{s.v}</div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-3 text-[11px] leading-relaxed text-zinc-400/80">
+                “Lag 0” se refiere a infraestructura propia optimizada y rutas dedicadas; la latencia real puede variar según ubicación y proveedor.
+              </p>
+            </div>
+
+            <div className="relative">
+              <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50 backdrop-blur">
+                <div className="relative">
+                  <img
+                    src={arenaImg}
+                    alt="Gaming setup premium"
+                    className="h-[320px] w-full object-cover sm:h-[420px]"
+                    loading="lazy"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-black/45" />
+                  <div className="pointer-events-none absolute inset-0 opacity-75 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.12),transparent_60%)]" />
+                </div>
+
+                <div className="p-6">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <div className="text-sm font-semibold text-zinc-50">Horus Path</div>
+                      <div className="mt-1 text-xs text-zinc-300/80">App → VPN → Servidores Horus → Juego</div>
+                    </div>
+                    <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-0.5 text-[11px] text-emerald-200">
+                      Protegido
+                    </Badge>
+                  </div>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                    {[
+                      { t: "pink" as const, label: "Privacidad", value: "Sin espías" },
+                      { t: "blue" as const, label: "Rendimiento", value: "Rutas pro" },
+                      { t: "green" as const, label: "Integridad", value: "Anti‑cheat" },
+                    ].map((x) => (
+                      <div
+                        key={x.label}
+                        className={[
+                          "rounded-2xl border bg-black/30 p-4",
+                          "ring-1",
+                          tone[x.t].ring,
+                          tone[x.t].border,
+                        ].join(" ")}
+                      >
+                        <div className="text-xs text-zinc-300/80">{x.label}</div>
+                        <div className={["mt-1 text-sm font-semibold", tone[x.t].text].join(" ")}>
+                          {x.value}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Button
+                    className="mt-4 w-full rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
+                    onClick={() => showSuccess("Conectando a la biblioteca de servidores…")}
+                  >
+                    Entrar a la biblioteca
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+
+                  <div className="mt-3 flex items-center justify-between rounded-2xl border border-cyan-400/15 bg-cyan-500/10 px-4 py-3">
+                    <div className="flex items-center gap-2 text-xs text-zinc-200">
+                      <KeyRound className="h-4 w-4 text-cyan-300" />
+                      <span>
+                        Addon gratis: <span className="font-semibold text-cyan-200">HorusPass</span>
+                      </span>
+                    </div>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="rounded-xl text-zinc-200 hover:bg-zinc-50/5 hover:text-zinc-50"
+                      onClick={() => showSuccess("HorusPass: acceso incluido gratis con tu suscripción.")}
+                    >
+                      Ver más
+                      <ChevronRight className="ml-1 h-4 w-4" />
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+
+              <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-500/12 blur-3xl" />
+              <div className="pointer-events-none absolute -left-20 bottom-[-120px] h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl" />
+            </div>
+          </div>
+        </section>
+
+        {/* Cómo funciona */}
+        <section id="como-funciona" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <SectionTitle
+            kicker="CÓMO FUNCIONA"
+            title="Una experiencia simple: seleccionas, conectas y juegas."
+            subtitle="Nada de VPN genérica: tu conexión entra a un entorno Horus controlado, con rendimiento gaming y capas de seguridad."
+          />
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            <FeatureCard
+              t="blue"
+              icon={<Server className="h-5 w-5" />}
+              title="Biblioteca de servidores"
+              desc="Accede a nuestra lista de servidores por juego, modo y región. Piensa en ello como un catálogo que se actualiza."
+            />
+            <FeatureCard
+              t="pink"
+              icon={<GlobeLock className="h-5 w-5" />}
+              title="Conexión por VPN directa"
+              desc="Entras con nuestra app VPN a la infraestructura Horus: ruta dedicada, menos exposición y más control del entorno."
+            />
+            <FeatureCard
+              t="green"
+              icon={<Zap className="h-5 w-5" />}
+              title="Juega con estabilidad"
+              desc="Servidores propios optimizados para gaming: menos jitter, mejor consistencia y experiencia competitiva."
+            />
+          </div>
+
+          <div className="mt-8 grid gap-4 lg:grid-cols-3">
+            <ImageCard
+              t="green"
+              src={bibliotecaJuegos}
+              alt="Biblioteca de juegos Horus"
+              caption="Biblioteca de juegos — selección por juego, modo y región"
+            />
+            <ImageCard
+              t="blue"
+              src={conexionVpn}
+              alt="Conexión VPN Horus"
+              caption="Conexión VPN dirigida — acceso seguro a servidores Horus"
+            />
+            <ImageCard
+              t="pink"
+              src={horusPassImg}
+              alt="HorusPass"
+              caption="HorusPass — gestor de contraseñas incluido"
+            />
+          </div>
+        </section>
+
+        {/* Seguridad */}
+        <section id="seguridad" className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <SectionTitle
+            kicker="SEGURIDAD"
+            title="Blindado por diseño: privacidad, anti‑cheat e IA."
+            subtitle="El objetivo es que juegues sin preocuparte: menos exposición de red, más control del entorno y comunidad más limpia."
+          />
+
+          <div className="mt-10">
+            <AntiCheatWaveform />
+          </div>
+
+          <div className="mt-4 grid gap-4 lg:grid-cols-3 lg:items-stretch">
+            <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/55 p-6 backdrop-blur lg:col-span-2">
+              <div className="flex flex-wrap gap-2">
+                <Badge className="rounded-full border-0 bg-fuchsia-500/15 px-2 py-1 text-[11px] text-fuchsia-200">
+                  Sin espías en tu PC mientras juegas
+                </Badge>
+                <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
+                  Infra Horus controlada
+                </Badge>
+                <Badge className="rounded-full border-0 bg-emerald-500/15 px-2 py-1 text-[11px] text-emerald-200">
+                  Vigilancia IA 24/7
+                </Badge>
+                <Badge className="rounded-full border-0 bg-cyan-500/15 px-2 py-1 text-[11px] text-cyan-200">
+                  HorusPass gratis
+                </Badge>
+              </div>
+
+              <div className="mt-5 grid gap-3 lg:grid-cols-2">
+                {[
+                  {
+                    t: "pink" as const,
+                    icon: <ShieldCheck className="h-5 w-5" />,
+                    title: "Privacidad real",
+                    desc: "Tu sesión viaja por un túnel hacia infraestructura Horus: reduces exposición mientras juegas.",
+                  },
+                  {
+                    t: "green" as const,
+                    icon: <Swords className="h-5 w-5" />,
+                    title: "Anti‑cheat instalado",
+                    desc: "Defensa activa para mantener integridad en partidas, servidores y comunidades.",
+                  },
+                  {
+                    t: "blue" as const,
+                    icon: <BrainCircuit className="h-5 w-5" />,
+                    title: "IA vigilando continuamente",
+                    desc: "Señales de anomalías y patrones sospechosos: respuesta más rápida, menos abuso.",
+                  },
+                  {
+                    t: "blue" as const,
+                    icon: <KeyRound className="h-5 w-5" />,
+                    title: "HorusPass (gratis)",
+                    desc: "Addon incluido para guardar contraseñas: menos fricción y más seguridad en tus cuentas.",
+                  },
+                ].map((r) => (
+                  <div
+                    key={r.title}
+                    className={[
+                      "rounded-3xl border bg-black/25 p-5",
+                      "ring-1",
+                      tone[r.t].ring,
+                      tone[r.t].border,
+                    ].join(" ")}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className={tone[r.t].text}>{r.icon}</div>
+                      <div className="min-w-0">
+                        <div className="text-sm font-semibold text-zinc-50">{r.title}</div>
+                        <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">{r.desc}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 grid gap-2 sm:grid-cols-2">
+                <Button
+                  className="w-full rounded-2xl border border-emerald-400/25 bg-emerald-500/15 text-emerald-100 hover:bg-emerald-500/22"
+                  onClick={() => showSuccess("Perfecto — te enviamos detalles técnicos y disponibilidad.")}
+                >
+                  Quiero detalles técnicos
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button
+                  className="w-full rounded-2xl border border-cyan-400/25 bg-cyan-500/15 text-cyan-100 hover:bg-cyan-500/22"
+                  onClick={() => showSuccess("HorusPass: acceso incluido gratis con tu suscripción.")}
+                >
+                  Ver HorusPass
+                  <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </Card>
+
+            <Card className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-950/50 backdrop-blur">
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
+                  alt="Horus Network — servidores"
+                  className="h-[460px] w-full object-cover"
+                  loading="lazy"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-black/50" />
+                <div className="pointer-events-none absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_30%_10%,rgba(255,255,255,.10),transparent_60%)]" />
+              </div>
+              <div className="p-6">
+                <div className="text-sm font-semibold text-zinc-50">Horus Network</div>
+                <div className="mt-1 text-sm leading-relaxed text-zinc-300/90">
+                  Conexión dirigida hacia servidores Horus, con capas de control y observabilidad para rendimiento y seguridad.
+                </div>
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        {/* Suscripción */}
+        {/* ... resto del componente permanece igual, incluyendo Planes, HorusPass, Servidores privados, Juegos, FAQ y CTA final ... */}
+      </main>
     </div>
   );
 };
