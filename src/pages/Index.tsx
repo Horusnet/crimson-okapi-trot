@@ -620,7 +620,7 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 3. Juegos soportados */}
+        {/* 3. Biblioteca de juegos */}
         <section id="juegos">
           <GamesSection />
         </section>
