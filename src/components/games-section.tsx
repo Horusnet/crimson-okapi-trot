@@ -16,31 +16,31 @@ const GAMES = [
     id: "minecraft",
     title: "Minecraft",
     img: mcImg,
-    desc: "Servidores creativos, survival y soporte de mods. Perfiles optimizados por versión.",
+    desc: "Servidores creativos, supervivencia y soporte de mods. Perfiles optimizados por versión.",
   },
   {
     id: "rust",
     title: "Rust",
     img: rustImg,
-    desc: "Instancias para PVP/PVE con presets de rendimiento y protección contra trampas.",
+    desc: "Instancias para PvP/PvE con perfiles de rendimiento y protección contra trampas.",
   },
   {
     id: "gta",
     title: "GTA",
     img: gtaImg,
-    desc: "Servidores roleplay / libres con control de escalado y snapshots automáticos.",
+    desc: "Servidores de rol / libres con control de escalado y copias de seguridad automáticas.",
   },
   {
     id: "hytale",
     title: "Hytale",
     img: hytaleImg,
-    desc: "Soporte para servidores creativos y aventuras, presets para estabilidad en PvE.",
+    desc: "Soporte para servidores creativos y de aventuras, perfiles para estabilidad en PvE.",
   },
   {
     id: "counter-strike",
-    title: "Counter Strike",
+    title: "Counter-Strike",
     img: csImg,
-    desc: "Matchmaking y servidores competitivos con baja latencia y anti‑cheat dedicado.",
+    desc: "Emparejamiento y servidores competitivos con baja latencia y anti‑cheat dedicado.",
   },
 ];
 

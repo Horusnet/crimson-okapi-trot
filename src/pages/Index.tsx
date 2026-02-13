@@ -378,7 +378,7 @@ const Index = () => {
             </div>
             <div className="leading-tight">
               <div className="text-sm font-semibold tracking-tight text-zinc-50">HorusVPN</div>
-              <div className="text-xs text-zinc-300/80">Gaming Ecosystem</div>
+              <div className="text-xs text-zinc-300/80">Ecosistema gaming</div>
             </div>
           </div>
 
@@ -431,7 +431,7 @@ const Index = () => {
                   Anti‑cheat + IA 24/7
                 </Pill>
                 <Pill t="blue" icon={<KeyRound className="h-3.5 w-3.5" />}>
-                  HorusPass gratis (password vault)
+                  HorusPass gratis (gestor de contraseñas)
                 </Pill>
               </div>
 
@@ -549,7 +549,7 @@ const Index = () => {
                     <div className="flex items-center gap-2 text-xs text-zinc-200">
                       <KeyRound className="h-4 w-4 text-cyan-300" />
                       <span>
-                        Addon gratis: <span className="font-semibold text-cyan-200">HorusPass</span>
+                        Complemento gratis: <span className="font-semibold text-cyan-200">HorusPass</span>
                       </span>
                     </div>
                     <Button
@@ -862,12 +862,12 @@ const Index = () => {
               className="w-full rounded-2xl border border-zinc-800 bg-zinc-950/55 p-4"
             >
               <AccordionItem value="q1">
-                <AccordionTrigger>¿Es una VPN clásica o algo distinto?</AccordionTrigger>
-                <AccordionContent>
-                  Es distinto: usas una app VPN, sí, pero la ruta va directa a infraestructura Horus, donde están los servidores
-                  de juego. No es “VPN a Internet genérico”, sino “VPN a un entorno controlado para gaming”.
-                </AccordionContent>
-              </AccordionItem>
+                  <AccordionTrigger>¿Es una VPN clásica o algo diferente?</AccordionTrigger>
+                  <AccordionContent>
+                    Es diferente: usas una app VPN, sí, pero la ruta va directa a la infraestructura de Horus, donde están los servidores
+                    de juego. No es “VPN a Internet genérico”, sino “VPN a un entorno controlado para gaming”.
+                  </AccordionContent>
+                </AccordionItem>
               <AccordionItem value="q2">
                 <AccordionTrigger>¿Qué pasa si juego a cosas fuera de Horus?</AccordionTrigger>
                 <AccordionContent>

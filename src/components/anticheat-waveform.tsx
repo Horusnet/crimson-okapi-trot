@@ -190,7 +190,7 @@ export default function AntiCheatWaveform() {
           </div>
 
           <div className="mt-3 text-center text-xs text-zinc-400/80">
-            Tip: toca un marcador para ver qué tipo de señal se ha detectado.
+            Consejo: toca un marcador para ver qué tipo de señal se ha detectado.
           </div>
         </div>
 
@@ -212,7 +212,7 @@ export default function AntiCheatWaveform() {
 
           <div className="grid gap-3 sm:grid-cols-3">
             {[
-              { icon: <Swords className="h-4 w-4" />, title: "Checks", desc: "Integridad" },
+              { icon: <Swords className="h-4 w-4" />, title: "Comprobaciones", desc: "Integridad" },
               { icon: <BrainCircuit className="h-4 w-4" />, title: "IA", desc: "Correlación" },
               { icon: <Zap className="h-4 w-4" />, title: "Acción", desc: "Mitigación" },
             ].map((x) => (

@@ -11,10 +11,10 @@ type Platform = {
 
 const PLATFORMS: Platform[] = [
   { id: "iphone", title: "iPhone", subtitle: "iOS", icon: <Smartphone className="h-5 w-5" /> },
-  { id: "android", title: "Android", subtitle: "App móvil", icon: <Smartphone className="h-5 w-5" /> },
-  { id: "windows", title: "Windows", subtitle: "Desktop", icon: <Monitor className="h-5 w-5" /> },
+  { id: "android", title: "Android", subtitle: "Aplicación móvil", icon: <Smartphone className="h-5 w-5" /> },
+  { id: "windows", title: "Windows", subtitle: "Escritorio", icon: <Monitor className="h-5 w-5" /> },
   { id: "mac", title: "Mac", subtitle: "macOS", icon: <Apple className="h-5 w-5" /> },
-  { id: "linux", title: "Linux", subtitle: "CLI / Desktop", icon: <Terminal className="h-5 w-5" /> },
+  { id: "linux", title: "Linux", subtitle: "CLI / Escritorio", icon: <Terminal className="h-5 w-5" /> },
 ];
 
 export default function PlatformIconsSection() {

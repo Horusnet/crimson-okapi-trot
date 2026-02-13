@@ -181,7 +181,7 @@ export default function AntiCheatRadar() {
           </div>
 
           <div className="mt-3 text-center text-xs text-zinc-400/80">
-            Tip: toca un punto para ver qué detecta el radar.
+            Consejo: toca un punto para ver qué detecta el radar.
           </div>
         </div>
 
@@ -203,7 +203,7 @@ export default function AntiCheatRadar() {
 
           <div className="grid gap-3 sm:grid-cols-3">
             {[
-              { icon: <Swords className="h-4 w-4" />, title: "Anti‑cheat", desc: "Reglas + señales" },
+              { icon: <Swords className="h-4 w-4" />, title: "Anti‑cheat", desc: "Señales + reglas" },
               { icon: <BrainCircuit className="h-4 w-4" />, title: "IA", desc: "Patrones sospechosos" },
               { icon: <Zap className="h-4 w-4" />, title: "Respuesta", desc: "Acción más rápida" },
             ].map((x) => (

@@ -193,7 +193,7 @@ export default function AntiCheatHexRadar() {
           </div>
 
           <div className="mt-3 text-center text-xs text-zinc-400/80">
-            Tip: toca un punto para ver qué está señalando el sistema.
+            Consejo: toca un punto para ver qué está señalando el sistema.
           </div>
         </div>
 
@@ -215,7 +215,7 @@ export default function AntiCheatHexRadar() {
 
           <div className="grid gap-3 sm:grid-cols-3">
             {[
-              { icon: <Swords className="h-4 w-4" />, title: "Anti‑cheat", desc: "Checks + reglas" },
+              { icon: <Swords className="h-4 w-4" />, title: "Anti‑cheat", desc: "Comprobaciones + reglas" },
               { icon: <BrainCircuit className="h-4 w-4" />, title: "IA", desc: "Correlación" },
               { icon: <Zap className="h-4 w-4" />, title: "Acción", desc: "Mitigación" },
             ].map((x) => (
